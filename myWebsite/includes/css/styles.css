@@ -1,0 +1,108 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Brad Hussey
+Updated: August 2013
+Notes:	 Hand coded for Udemy.com
+
+*/
+
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+#features{
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer{
+    background: blue;
+    color: white;
+}
+
+
+/* --------------------------------------
+   Typography
+   -------------------------------------- */
+
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+#searchInput{
+    width: 200px;
+}
+
+#nav-list > ul > li > a{
+    color: white;
+}
+
+.navbar-brand{
+    padding: 13px 15px;
+}
+
+.navbar{
+    background-color: blue;
+    
+}
+   
+   
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+#myCarousel .item{ height: 340px; }
+
+#myCarousel {
+    margin-top: 70px;
+}
+
+.carousel-caption h4{
+    text-align: left;
+    font-size: 36px;
+}
+
+.carousel-caption h3{
+    text-align: left;
+    font-size: 28px;
+    font-style: italic;
+}
+
+#slide1{
+    background: url('../../images/banner-hp-tim-young-giu2016.jpg') top center no-repeat;
+}
+
+#slide2{
+    background: url('../../images/banner-hp-supergiga-lug2016.jpg') top center no-repeat;
+}
+
+#slide3{
+    background: url('../../images/banner_hp_tim_in_viaggio_pass.jpg') top center no-repeat;
+}
+
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+	
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	
+}
