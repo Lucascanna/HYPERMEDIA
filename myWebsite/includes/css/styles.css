@@ -61,7 +61,6 @@ footer{
     background-color: white;
 }
    
-   
 /* --------------------------------------
    Carousel
    -------------------------------------- */
@@ -120,12 +119,16 @@ html, body {
 
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
-	
+    #whoWeAreTable.table tr td:nth-of-type(1){
+        display: none;
+    }
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
-	
+	#whoWeAreTable.table tr td:nth-of-type(1){
+        display: none;
+    }
 }
 
 /* Large desktop */
