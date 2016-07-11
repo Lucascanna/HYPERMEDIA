@@ -23,6 +23,10 @@ footer{
     color: white;
 }
 
+#orientation-info{
+    margin-top: 50px;
+}
+
 
 /* --------------------------------------
    Typography
@@ -44,7 +48,7 @@ footer{
     padding: 13px 15px;
 }
 
-.navbar{
+#main-navbar{
     background-color: blue;
     
 }

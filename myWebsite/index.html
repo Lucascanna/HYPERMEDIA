@@ -4,8 +4,8 @@
 	<head>
 		
 		<!-- Website Title & Description for Search Engine purposes -->
-		<title></title>
-		<meta name="description" content="">
+		<title>TIM</title>
+		<meta name="description" content="Official TIM website">
 		
 		<!-- Mobile viewport optimized -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -22,21 +22,14 @@
         
         <!-- jQuery -->
 	   <script src="includes/js/jquery-1.8.2.min.js"></script>
-        
-        <!-- Bootstrap JS -->
-	   <script src="bootstrap/js/bootstrap.min.js"></script>
-	
-	   <!-- Custom JS -->
-	   <script src="includes/js/script.js"></script>
-        
 		
 	</head>
 	<body>
 	
 	<div class="container" id="main">
         
-        	   <div class="navbar navbar-fixed-top">
-           <div class="container">
+        	   <div class="navbar navbar-fixed-top" id=main-navbar>
+                <div class="container">
                	<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
 			         <span class="icon-bar"></span>
 			         <span class="icon-bar"></span>
@@ -46,13 +39,13 @@
                <div class="nav-collapse collapse navbar-responsive-collapse" id="nav-list">
                    <ul class="nav navbar-nav">
                        <li>
-                           <a href="#">Devices</a>
+                           <a href="all-devices-by-category.html">Devices</a>
                        </li>
                        <li>
-                           <a href="#">Smart Life</a>
+                           <a href="all-smart-life-by-category.html">Smart Life</a>
                        </li>
                        <li>
-                           <a href="#">Assistance</a>
+                           <a href="all-assistance-by-category.html">Assistance</a>
                        </li>
                    </ul>
                    
@@ -75,6 +68,7 @@
            </div>
 		
 	   </div><!-- end navbar -->
+    </div><!-- end main container -->
 
 	   
 	
@@ -168,7 +162,7 @@
     </div><!-- end index container -->
         
     <footer>
-        <div class="conteiner">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-8">
                     <h6>Copyright &copy; 2016 Penco, Scannapieco, Torelli</h6>
@@ -189,6 +183,12 @@
 	
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+        
+    <!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+    <!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
 	
 	</body>
 </html>

@@ -4,8 +4,8 @@
 	<head>
 		
 		<!-- Website Title & Description for Search Engine purposes -->
-		<title>Code a Responsive Website with Twitter Bootstrap 3</title>
-		<meta name="description" content="Learn how to code your first responsive website with the new Twitter Bootstrap 3.">
+		<title>Who we are</title>
+		<meta name="description" content="Official TIM website">
 		
 		<!-- Mobile viewport optimized -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,13 +15,97 @@
 		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="includes/css/styles.css">
+		<link href="includes/css/styles.css" rel="stylesheet">
 		
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
 		
 	</head>
-    <body>
-    
-    </body>
+ <body>
+	
+	<div class="container" id="main">
+        
+        	   <div class="navbar navbar-fixed-top" id=main-navbar>
+                <div class="container">
+               	<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#"><img src="images/tim.png" alt="Your Logo" height="22" width="108"></a>
+               
+               <div class="nav-collapse collapse navbar-responsive-collapse" id="nav-list">
+                   <ul class="nav navbar-nav">
+                       <li>
+                           <a href="all-devices-by-category.html">Devices</a>
+                       </li>
+                       <li>
+                           <a href="all-smart-life-by-category.html">Smart Life</a>
+                       </li>
+                       <li>
+                           <a href="all-assistance-by-category.html">Assistance</a>
+                       </li>
+                   </ul>
+                   
+                   <form class="navbar-form pull-right">
+                       <input type="text" class="form-control" placeholder="Search in this website..." id="searchInput">
+                       <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                   </form><!-- end search form -->
+                   
+                   <ul class="nav navbar-nav pull-right">
+                       <li>
+                           <a href="#">Who we are</a>
+                       </li>
+                       <li>
+                           <a href="#">The group</a>
+                       </li>
+                   </ul>
+                </div>
+               
+               
+           </div>
+		
+	   </div><!-- end navbar -->
+
+	   
+	
+	   <!-- Carousel -->
+	   <div class="carousel slide" id="myCarousel">
+           
+          
+	
+	   </div><!-- end myCarousel -->
+           
+        
+    </div><!-- end index container -->
+        
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h6>Copyright &copy; 2016 Penco, Scannapieco, Torelli</h6>
+                </div>
+                <div class="col-sm-2 pull-right">
+                    <a class="btn btn-link">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </footer><!-- end footer -->
+        
+	
+
+	<!-- All Javascript at the bottom of the page for faster page loading -->
+		
+	<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+	
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+        
+    <!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+    <!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+	
+	</body>
 </html>
