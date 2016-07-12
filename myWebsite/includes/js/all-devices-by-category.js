@@ -15,16 +15,35 @@ $("document").ready(
                 var count=0;
                 var categories=[];
                 var uniqueCategories=[];
+                var promotionDevices=[];
                 
-                for(i=0;i<devices.length;i++)
-                    categories[i]=devices[i].nomecategoria;
+                //getting all categories
+                for(i=0;i<devices.length;i++){
+                    var obj={idcategory:devices[i].idcategoria, namecategory:devices[i].nomecategoria};
+                    categories[i]=obj;
+                }
+                    
                 
-                uniqueCategories=categories.filter(function(item,position){
-                    return categories.indexOf(item)==position;
+                //deleting categories duplicates
+               uniqueCategories=categories.filter(function(item,position){
+                    return arrayObjectIndexOf(categories,item.idcategory,"idcategory")==position;
                 });
                 
+                console.log(uniqueCategories);
                 
-                for(i=0;i<categories.length;i++){
+                //getting 3 promotion devices
+                count=0;
+                for(i=0;i<devices.length;i++){
+                    if(count==3)
+                        break;
+                    if(devices[i].promotionprodotto==1){
+                        promotionDevices[count]=devices[i];
+                        count++;
+                    }
+                }
+                              
+                //creating categories panels
+                for(i=0;i<uniqueCategories.length;i++){
                     
                     //creating dynamic elements of the page
                     var currentRow=document.createElement("div");
@@ -37,21 +56,36 @@ $("document").ready(
                     panelHeading.setAttribute("class","panel-heading");
                     var panelContent=document.createElement("div");
                     panelContent.setAttribute("class","panel-body");
-                    
+                    var rowImages=document.createElement("div");
+                    rowImages.setAttribute("class","row");
+                    var rowButton=document.createElement("div");
+                    rowButton.setAttribute("class","row");
+                    var colButton=document.createElement("div");
+                    colButton.setAttribute("class","col-sm-4");
+                    var button=document.createElement("a");
+                    button.setAttribute("class","btn btn-primary btn-block");
+                    var urlButton="devices-by-category.html?idcategory="+uniqueCategories[i].idcategory;
+                    button.setAttribute("href", urlButton);
+                    var nameButton=document.createTextNode("Go to "+uniqueCategories[i].namecategory);
+                    button.appendChild(nameButton);
                     
                     //filling elements with content
-                    var name=document.createTextNode(devices[i].nomecategoria);
+                    var name=document.createTextNode(uniqueCategories[i].namecategory);
                     panelHeading.appendChild(name);
                     count=0;
-                    for(j=0; devices.length;j++){
+                    for(j=0; j<devices.length;j++){
                         if(count==3)
                             break;
-                        if(devices[j].nomecategoria==uniqueCategories[i]){
+                        if(devices[j].nomecategoria==uniqueCategories[i].namecategory){
                             var img=document.createElement("img");
                             img.setAttribute("class","img-responsive");
+                            img.setAttribute("id", "img-categories");
                             var urlimg="images/"+devices[j].fotoprodotto;
                             img.setAttribute("src",urlimg);
-                            panelContent.appendChild(img);
+                            var coloumnImage=document.createElement("div");
+                            coloumnImage.setAttribute("class", "col-sm-4 text-center");
+                            rowImages.appendChild(coloumnImage);
+                            coloumnImage.appendChild(img);
                             count++;
                         }
                     }
@@ -61,9 +95,69 @@ $("document").ready(
                     currentRow.appendChild(firstColoumn);
                     firstColoumn.appendChild(currentPanel);
                     currentPanel.appendChild(panelHeading);
-                    currentPanel.appendChild(panelContent);               
+                    currentPanel.appendChild(panelContent); 
+                    panelContent.appendChild(rowImages);
+                    var emptyCol=document.createElement("div");
+                    emptyCol.setAttribute("class", "col-sm-4");
+                    rowButton.appendChild(emptyCol);
+                    rowButton.appendChild(colButton);
+                    colButton.appendChild(button);
+                    panelContent.appendChild(rowButton);
                     
                 }
+                
+                //creating promotion panel
+                var currentRow=document.createElement("div");
+                currentRow.setAttribute("class", "row"); 
+                var firstColoumn=document.createElement("div");
+                firstColoumn.setAttribute("class", "col-sm-12");
+                var currentPanel=document.createElement("div");
+                currentPanel.setAttribute("class", "panel panel-primary");
+                var panelHeading=document.createElement("div");
+                panelHeading.setAttribute("class","panel-heading");
+                var panelContent=document.createElement("div");
+                panelContent.setAttribute("class","panel-body");
+                var rowImages=document.createElement("div");
+                rowImages.setAttribute("class","row");
+                var rowButton=document.createElement("div");
+                rowButton.setAttribute("class","row");
+                var colButton=document.createElement("div");
+                colButton.setAttribute("class","col-sm-4");
+                var button=document.createElement("a");
+                button.setAttribute("class","btn btn-primary btn-block");
+                var urlButton="devices-by-category.html?idcategory=5";
+                button.setAttribute("href", urlButton);
+                var nameButton=document.createTextNode("Go to Promotions");
+                button.appendChild(nameButton);
+                
+                
+                var name=document.createTextNode("Promotion");
+                panelHeading.appendChild(name);
+                for(i=0;i<promotionDevices.length;i++){
+                    var img=document.createElement("img");
+                    img.setAttribute("class","img-responsive");
+                    img.setAttribute("id", "img-categories");
+                    var urlimg="images/"+promotionDevices[i].fotoprodotto;
+                    img.setAttribute("src",urlimg);
+                    var coloumnImage=document.createElement("div");
+                    coloumnImage.setAttribute("class", "col-sm-4");
+                    rowImages.appendChild(coloumnImage);
+                    coloumnImage.appendChild(img);
+                }
+                
+                container.appendChild(currentRow);
+                currentRow.appendChild(firstColoumn);
+                firstColoumn.appendChild(currentPanel);
+                currentPanel.appendChild(panelHeading);
+                currentPanel.appendChild(panelContent); 
+                panelContent.appendChild(rowImages);
+                var emptyCol=document.createElement("div");
+                emptyCol.setAttribute("class", "col-sm-4");
+                rowButton.appendChild(emptyCol);
+                rowButton.appendChild(colButton);
+                colButton.appendChild(button);
+                panelContent.appendChild(rowButton);
+                
                 
             }, 
             error: function(request,error) { 
@@ -72,6 +166,15 @@ $("document").ready(
         }); 
         return false; 
 });
+
+
+ function arrayObjectIndexOf(myArray, searchTerm, property) {
+    for(var i = 0, len = myArray.length; i < len; i++) {
+        if (myArray[i][property] === searchTerm) return i;
+    }
+    return -1;
+
+}
 
 
 

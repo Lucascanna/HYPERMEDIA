@@ -16,6 +16,10 @@ footer{
     margin-top: 50px;
 }
 
+#img-categories{
+    max-height: 70%;
+    max-width: 70%;
+}
 
 /* --------------------------------------
    Typography
