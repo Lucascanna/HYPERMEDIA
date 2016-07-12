@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-define('MYSQL_BOTH',MYSQLI_BOTH);
-define('MYSQL_NUM',MYSQLI_NUM);
-define('MYSQL_ASSOC',MYSQLI_ASSOC);
+//define('MYSQL_BOTH',MYSQLI_BOTH);
+//define('MYSQL_NUM',MYSQLI_NUM);
+//define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
 

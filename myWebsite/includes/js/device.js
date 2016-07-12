@@ -1,7 +1,7 @@
 $("document").ready(
     function(){
         
-    var idDevice = location.search.split('idDevice=')[1];
+    var idDevice = location.search.split('iddevice=')[1];
     
     $.ajax({
         method: "POST",          

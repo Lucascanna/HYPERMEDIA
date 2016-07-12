@@ -13,15 +13,8 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    if($id == 5){
-        $query = "  SELECT * FROM prodotti 
-                    WHERE prodotti.promotionprodotto = 1 
-                    ORDER BY prodotti.idprodotto ASC  ";  
-    }
-    else{
-        $query = "  SELECT DISTINCT * FROM prodotti
-                    WHERE prodotti.idcategoria = '".$id."' 
-                    ORDER BY prodotti.idprodotto ASC  ";
+    $query ="   SELECT * FROM prodotti 
+                WHERE prodotti.idprodotto = '".$id."'";
     }
     
     $result = $mysqli->query($query);
