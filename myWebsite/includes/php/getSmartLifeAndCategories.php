@@ -4,8 +4,6 @@ header("Access-Control-Allow-Origin: *");
 //define('MYSQL_NUM',MYSQLI_NUM);
 //define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
-$id = intval($_GET['id']);
-
 $mysqli = new mysqli("localhost", "root", "", "timdb");
 
 if (mysqli_connect_errno()) {
@@ -13,16 +11,9 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    if($id == 5){
-        $query = "  SELECT * FROM smartlife 
-                    WHERE smartlife.promotionsmartlife = 1 
-                    ORDER BY prodotti.idsmartlife ASC  ";  
-    }
-    else{
-        $query = "  SELECT DISTINCT * FROM smartlife
-                    WHERE smartlife.idcategoria = '".$id."' 
-                    ORDER BY smartlife.idsmartlife ASC  ";
-    }
+    $query = "  SELECT * 
+                FROM categoriesmartlife 
+                ORDER BY idcategoria ASC  ";
     
     $result = $mysqli->query($query);
 

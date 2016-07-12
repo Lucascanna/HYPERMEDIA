@@ -1,7 +1,7 @@
 $("document").ready(
     function(){
     
-    $( "#device" ).empty();
+    $( "#smartlife" ).empty();
             
     var category = location.search.split('idcategory=')[1];
     
@@ -9,54 +9,56 @@ $("document").ready(
         method: "POST",
         crossDomain: true,
         
-        url: "/includes/php/getSmartLifeByCategory.php?id="+category, //Relative or absolute path to file.phpfile
+        url: "includes/php/getSmartLifeByCategory.php?id="+category, //Relative or absolute path to file.phpfile
         async: true,
         
         success: function(response) {
-            var devices=JSON.parse(response);
+            var smartlife=JSON.parse(response);
             
             var i=0;
             
-            for(i=0;i<prodotti.length;i++) {
+            for(i=0;i<smartlife.length;i++) {
                 
-          //      var urlProdotto = "device.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
+          //      var urlSmartLife = "smart-life.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
                     
                 //creating images dinamically
-                var image = document.createElement("img");  
+                var smartLifeImage = document.createElement("img");
                 var urlImage = "images/" + smartlife[i].fotosmartlife;
-                image.setAttribute('src', urlImage);
-                image.setAttribute("class", "img-responsive");
+                smartLifeImage.setAttribute('src', urlImage);
+                smartLifeImage.setAttribute("class", "img-responsive");
                    
                 //creating name dinamically
-                var deviceName = document.createElement("a");
-                deviceName.setAttribute('class', 'btn btn-primary btn-block');
-                deviceName.setAttribute("href", urlSmartLife);
+                var smartLifeName = document.createElement("h4");
+                smartLifeName.setAttribute("class", "text-center");
+    //            smartLifeName.setAttribute("href", urlSmartLife);
                 var tempName = document.createTextNode(smartlife[i].nomesmartlife);
-                deviceName.appendChild(tempName);
+                smartLifeName.appendChild(tempName);
                     
-                 //creating description dinamically
-                var deviceDescription = document.createElement("p");
-                var descriptionText = document.createTextNode("$"+smartlife[i].prezzosmartlife);
-                deviceDescription.appendChild(descriptionText);
+                //creating discover button dinamically
+                var discoverButton = document.createElement("a");
+                var discover = document.createTextNode("Discover");
+                discoverButton.appendChild(discover);
+                discoverButton.setAttribute("class", "btn btn-primary btn-block");
                     
-                 //creating container for the device
-                var device = document.createElement("div");
-                device.setAttribute("class", "col-sm-3 feature");
-                    
-                var devicePanel = document.createElement("div");
-                devicePanel.setAttribute("class", "panel");
-                devicePanel.setAttribute("id", "panel-product");
-                    
+                //creating panel for the smart life
+                 var smartLifePanel = document.createElement("div");
+                smartLifePanel.setAttribute("class", "panel");
+                smartLifePanel.setAttribute("id", "panel-product");
+                
                 //appending all the elements to the page
-                devicePanel.appendChild(smartlifeImage);
-                devicePanel.appendChild(smartlifeDescription);
-                devicePanel.appendChild(smartlifeName);
-                    
-                device.appendChild(devicePanel);
+                smartLifePanel.appendChild(smartLifeImage);
+                smartLifePanel.appendChild(smartLifeName);
+                smartLifePanel.appendChild(discoverButton);
+                
+                //creating container for the smart life
+                var smartLife = document.createElement("div");
+                smartLife.setAttribute("class", "col-sm-3 feature");
+                
+                smartLife.appendChild(smartLifePanel);
 
-                var container = document.getElementById("device");
+                var container = document.getElementById("smartlife");
               
-                    container.appendChild(device);
+                    container.appendChild(smartLife);
             }
              
         },
@@ -66,4 +68,4 @@ $("document").ready(
         }
     });
 
-}
+})

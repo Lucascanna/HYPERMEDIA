@@ -3,7 +3,6 @@ $("document").ready(
     
     $( "#device" ).empty();
     
-    var idprodotti=1;    
     var category = location.search.split('idcategory=')[1];
     
     $.ajax({
@@ -13,7 +12,6 @@ $("document").ready(
         url: "includes/php/getDevicesByCategory.php?id="+category, //Relative or absolute path to file.phpfile
         async: true,
         
-        data: {prodotti:idprodotti},
         success: function(response) {
             var devices=JSON.parse(response);
             
@@ -24,22 +22,24 @@ $("document").ready(
     //           var urlProdotto = "device.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
                     
                 //creating images dinamically
-                var deviceImage = document.createElement("img");  
+                var deviceImage = document.createElement("img"); 
                 var urlImage = "images/" + devices[i].fotoprodotto;
                 deviceImage.setAttribute('src', urlImage);
                 deviceImage.setAttribute("class", "img-responsive");
+    //            deviceImage.setAttribute("href", urlProdotto);
                    
                 //creating name dinamically
-                var deviceName = document.createElement("a");
-                deviceName.setAttribute('class', 'btn btn-primary btn-block');
+                var deviceName = document.createElement("h4");
+                deviceName.setAttribute("class", "text-center");
     //            deviceName.setAttribute("href", urlProdotto);
                 var tempName = document.createTextNode(devices[i].nomeprodotto);
                 deviceName.appendChild(tempName);
                     
-                 //creating description dinamically
-                var deviceDescription = document.createElement("p");
-                var descriptionText = document.createTextNode("$"+devices[i].prezzoprodotto);
-                deviceDescription.appendChild(descriptionText);
+                //creating price dinamically
+                var devicePrice = document.createElement("p");
+                devicePrice.setAttribute("class", "text-center");
+                var priceText = document.createTextNode("$"+devices[i].prezzoprodotto);
+                devicePrice.appendChild(priceText);
                     
                 //creating a panel for the device
                 var devicePanel = document.createElement("div");
@@ -48,8 +48,8 @@ $("document").ready(
                 
                 //appending all the elements to the panel
                 devicePanel.appendChild(deviceImage);
-                devicePanel.appendChild(deviceDescription);
                 devicePanel.appendChild(deviceName);
+                devicePanel.appendChild(devicePrice);
                 
                 //creating container for the device
                 var device = document.createElement("div");
