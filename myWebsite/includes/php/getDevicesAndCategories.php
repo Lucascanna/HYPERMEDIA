@@ -11,9 +11,10 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query = "  SELECT * 
-                FROM categorieprodotti 
-                ORDER BY idcategoria ASC  ";
+    $query = "  SELECT *
+                FROM categorieprodotti, prodotti
+                WHERE categorieprodotti.idcategoria = prodotti.idcategoria
+                ORDER BY prodotti.idprodotto ASC ";
     
     $result = $mysqli->query($query);
 
