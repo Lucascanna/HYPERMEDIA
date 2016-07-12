@@ -24,16 +24,15 @@ footer{
 /* --------------------------------------
    Typography
    -------------------------------------- */
-#whoWeAreTable{
-    margin-top: 90px;    
+#containerWhoWeAre{
+    margin-top: 110px;
 }
 
-#whoWeAreTable.table td{
-    text-align: center;
-}
-
-#whoWeAreTable.table > tbody > tr > td {
-     vertical-align: middle;
+#containerWhoWeAre .col-sm-4, .col-sm-8 {
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
 }
 
 /* --------------------------------------
@@ -99,15 +98,18 @@ footer{
 * {
     margin: 0;
 }
+
 html, body {
     height: 100%;
 }
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -35px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
     height: 40px; /* .push must be the same height as .footer */
 }
@@ -119,16 +121,12 @@ html, body {
 
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
-    #whoWeAreTable.table tr td:nth-of-type(1){
-        display: none;
-    }
+
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
-	#whoWeAreTable.table tr td:nth-of-type(1){
-        display: none;
-    }
+	
 }
 
 /* Large desktop */

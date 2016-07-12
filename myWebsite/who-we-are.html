@@ -30,7 +30,7 @@
         
         <div class="navbar navbar-fixed-top" id=main-navbar>
                 <div class="container">
-               	<button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+               	<button class="navbar-toggle" data-target="#nav-list" data-toggle="collapse" type="button">
 			         <span class="icon-bar"></span>
 			         <span class="icon-bar"></span>
                </button>
@@ -67,39 +67,73 @@
 		 </div>
         
         <div class="navbar navbar-fixed-top" id="whoWeAreNav">
-                <div class="row">
+                <div class="container">
+                    <button class="navbar-toggle" data-target="#nav-list-2" data-toggle="collapse" type="button">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                    </button>
+              
+                
+                    <div class="nav-collapse collapse navbar-responsive-collapse" id="nav-list-2">
 			         <ul class="nav nav-tabs nav-justified">
                         <li class="active"><a href="#">INNOVATIONS</a></li>
                         <li><a href="#">TESTIMONIALS</a>
                         <li><a href="#">PROJECTS</a></li>
 			         </ul>
+                    </div>
                 </div>
             </div>
         </div>
     
-    <div class="container">
-        <div class="table-responsive">
-            <table style="width: auto" class="table" id="whoWeAreTable">
-                <tbody>
-                    <tr>
-                        <td> <img class="img-responsive" src="images/Nuovo_Logo_TIM.jpg"> </td>
-                        <td> <p class="lead">Since it was born, Tim's logo was a sign of modernity and dynamism: a promise of projects and new horizons. Today continues to be an emblem of change, combining the competences of two realities: the red trigram Telecom Italia, the intense blue of the TIM brand and a T to merge these two worlds.</p> </td>
-                    </tr>
-                    <tr>
-                        <td><img class="img-responsive" src="images/images-11.jpg"></td>
-                        <td> <p class="lead">We offer the tools by which each of us can pursue their dreams: to have more time, more energy, more freedom.</p></td>
-                    </tr>
-                    <tr>
-                        <td><img class="img-responsive" src="images/ue_roaming2015.jpg"></td>
-                        <td> <p class="lead">We offer the best landline and mobile network at the service of all to ensure quality and safety with a competent and experienced service, accessible through all online and offline channels.</p> </td>
-                    </tr>
-                    <tr>
-                        <td> <img class="img-responsive" src="images/valori-01.jpg"></td>
-                        <td> <p class="lead">We enable the digital life of all, because the culture of the social web can create a benefit for more and more people.</p> </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container" id="containerWhoWeAre">
+        <div class="panel">
+            <div class="row text-center">
+                <div class="col-sm-4 feature text-center">
+                        <img class="img-responsive" src="images/Nuovo_Logo_TIM.jpg">
+                </div>
+                <div class="col-sm-8 feature text-center">
+                    <h3><b>THE LOGO</b></h3>
+                        <p class="lead">Since it was born, Tim's logo was a sign of modernity and dynamism: a promise of projects and new horizons. Today continues to be an emblem of change, combining the competences of two realities: the red trigram Telecom Italia, the intense blue of the TIM brand and a T to merge these two worlds.</p>
+                </div>
+            </div>
         </div>
+            
+        <div class="panel">    
+            <div class="row text-center">
+                <div class="col-sm-4 feature text-center">
+                    <img class="img-responsive" src="images/images-11.jpg">
+                </div>
+                <div class="col-sm-8 feature text-center">
+                    <h3><b>A DREAM WITH TIM</b></h3>
+                        <p class="lead">We offer the tools by which each of us can pursue their dreams: have more time, more energy, more freedom.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">    
+            <div class="row text-center">
+                <div class="col-sm-4 feature text-center">
+                    <img class="img-responsive" src="images/ue_roaming2015.jpg">
+                </div>
+                <div class="col-sm-8 feature text-center">
+                    <h3><b>QUALITY AND SAFETY</b></h3>
+                        <p class="lead">We offer the best landline and mobile network at the service of all to ensure quality and safety with a competent and experienced service, accessible through all online and offline channels.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">    
+            <div class="row text-center">
+                <div class="col-sm-4 feature text-center">
+                        <img class="img-responsive" src="images/valori-01.jpg" height="300" width="250">
+                </div>
+                <div class="col-sm-8 feature text-center">
+                   <h3><b>A DIGITAL COMMUNITY</b></h3>
+                       <p class="lead">We enable the digital life of all people because the culture of the social web can create a benefit for more and more people.</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
         
     <div class="push"></div>
@@ -116,7 +150,7 @@
                 </div>
             </div>
         </div>
-    <footer><!-- end footer -->
+    <footer><!-- end footer --> 
         
 	
 
