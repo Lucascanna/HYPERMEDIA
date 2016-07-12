@@ -17,6 +17,11 @@ $("document").ready(
             
             var i=0;
             
+            //setting orientation info
+            var info=document.getElementById("active-info");
+            var infoName=document.createTextNode(smartlife[0].nomecategoria);
+            info.appendChild(infoName);
+            
             for(i=0;i<smartlife.length;i++) {
                 
           //      var urlSmartLife = "smart-life.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;

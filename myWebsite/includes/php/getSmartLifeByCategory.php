@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-//define('MYSQL_BOTH',MYSQLI_BOTH);
-//define('MYSQL_NUM',MYSQLI_NUM);
-//define('MYSQL_ASSOC',MYSQLI_ASSOC);
+define('MYSQL_BOTH',MYSQLI_BOTH);
+define('MYSQL_NUM',MYSQLI_NUM);
+define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
 
@@ -19,8 +19,9 @@ else {
                     ORDER BY prodotti.idsmartlife ASC  ";  
     }
     else{
-        $query = "  SELECT DISTINCT * FROM smartlife
-                    WHERE smartlife.idcategoria = '".$id."' 
+        $query = "  SELECT * 
+                    FROM smartlife,categoriesmartlife
+                    WHERE smartlife.idcategoria=categoriesmrtlife.idcategoria AND smartlife.idcategoria = '".$id."' 
                     ORDER BY smartlife.idsmartlife ASC  ";
     }
     

@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-//define('MYSQL_BOTH',MYSQLI_BOTH);
-//define('MYSQL_NUM',MYSQLI_NUM);
-//define('MYSQL_ASSOC',MYSQLI_ASSOC);
+define('MYSQL_BOTH',MYSQLI_BOTH);
+define('MYSQL_NUM',MYSQLI_NUM);
+define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $mysqli = new mysqli("localhost", "root", "", "timdb");
 
@@ -11,9 +11,10 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query = "  SELECT * 
-                FROM categoriesmartlife 
-                ORDER BY idcategoria ASC  ";
+    $query = "  SELECT *
+                FROM categoriesmartlife, smartlife
+                WHERE categoriesmartlife.idcategoria = smartlife.idcategoria
+                ORDER BY smartlife.idsmartlife ASC  ";
     
     $result = $mysqli->query($query);
 
