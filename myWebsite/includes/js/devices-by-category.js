@@ -5,7 +5,7 @@ $("document").ready(
     
     var idprodotti=1;    
     var category = location.search.split('idcategory=')[1];
-    console.info(category);
+    
     $.ajax({
         method: "POST",
         crossDomain: true,
@@ -19,26 +19,26 @@ $("document").ready(
             
             var i=0;
             
-            for(i=0;i<prodotti.length;i++) {
+            for(i=0;i<devices.length;i++) {
                 
-          //      var urlProdotto = "device.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
+    //           var urlProdotto = "device.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
                     
                 //creating images dinamically
-                var image = document.createElement("img");  
-                var urlImage = "images/" + prodotti[i].fotoprodotto;
-                image.setAttribute('src', urlImage);
-                image.setAttribute("class", "img-responsive");
+                var deviceImage = document.createElement("img");  
+                var urlImage = "images/" + devices[i].fotoprodotto;
+                deviceImage.setAttribute('src', urlImage);
+                deviceImage.setAttribute("class", "img-responsive");
                    
                 //creating name dinamically
                 var deviceName = document.createElement("a");
                 deviceName.setAttribute('class', 'btn btn-primary btn-block');
-                deviceName.setAttribute("href", urlProdotto);
-                var tempName = document.createTextNode(prodotti[i].nomeprodotto);
+    //            deviceName.setAttribute("href", urlProdotto);
+                var tempName = document.createTextNode(devices[i].nomeprodotto);
                 deviceName.appendChild(tempName);
                     
                  //creating description dinamically
                 var deviceDescription = document.createElement("p");
-                var descriptionText = document.createTextNode("$"+prodotti[i].prezzoprodotto);
+                var descriptionText = document.createTextNode("$"+devices[i].prezzoprodotto);
                 deviceDescription.appendChild(descriptionText);
                     
                 //creating a panel for the device
