@@ -16,6 +16,11 @@ $("document").ready(
             var devices=JSON.parse(response);
             
             var i=0;
+        
+            //setting orientation info
+            var info=document.getElementById("active-info");
+            var infoName=document.createTextNode(devices[0].nomecategoria);
+            info.appendChild(infoName);
             
             for(i=0;i<devices.length;i++) {
                 

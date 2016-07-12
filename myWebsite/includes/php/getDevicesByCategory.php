@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-//define('MYSQL_BOTH',MYSQLI_BOTH);
-//define('MYSQL_NUM',MYSQLI_NUM);
-//define('MYSQL_ASSOC',MYSQLI_ASSOC);
+define('MYSQL_BOTH',MYSQLI_BOTH);
+define('MYSQL_NUM',MYSQLI_NUM);
+define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
 
@@ -19,8 +19,8 @@ else {
                     ORDER BY prodotti.idprodotto ASC  ";  
     }
     else{
-        $query = "  SELECT DISTINCT * FROM prodotti
-                    WHERE prodotti.idcategoria = '".$id."' 
+        $query = "  SELECT DISTINCT * FROM prodotti, categorieprodotti
+                    WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idcategoria = '".$id."' 
                     ORDER BY prodotti.idprodotto ASC  ";
     }
     

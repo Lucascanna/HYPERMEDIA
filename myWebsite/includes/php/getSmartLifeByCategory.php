@@ -16,12 +16,11 @@ else {
     if($id == 5){
         $query = "  SELECT * FROM smartlife 
                     WHERE smartlife.promotionsmartlife = 1 
-                    ORDER BY prodotti.idsmartlife ASC  ";  
+                    ORDER BY smartlife.idsmartlife ASC  ";  
     }
     else{
-        $query = "  SELECT * 
-                    FROM smartlife,categoriesmartlife
-                    WHERE smartlife.idcategoria=categoriesmrtlife.idcategoria AND smartlife.idcategoria = '".$id."' 
+        $query = "  SELECT DISTINCT * FROM smartlife, categoriesmartlife
+                    WHERE smartlife.idcategoria=categoriesmartlife.idcategoria AND smartlife.idcategoria = '".$id."' 
                     ORDER BY smartlife.idsmartlife ASC  ";
     }
     
