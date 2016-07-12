@@ -28,14 +28,18 @@ $("document").ready(
             
             for(i=0;i<devices.length;i++) {
                 
-    //           var urlProdotto = "device.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
                     
                 //creating images dinamically
                 var deviceImage = document.createElement("img"); 
                 var urlImage = "images/" + devices[i].fotoprodotto;
                 deviceImage.setAttribute('src', urlImage);
                 deviceImage.setAttribute("class", "img-responsive");
-    //            deviceImage.setAttribute("href", urlProdotto);
+        
+                //setting the link to the image
+                var urlProdotto = "device.html?idcategoria=" + devices[i].idcategoria + "?idprodotti=" + devices[i].idprodotto;
+                var deviceLink = document.createElement("a");
+                deviceLink.setAttribute("href", urlProdotto);
+                deviceLink.appendChild(deviceImage);
                    
                 //creating name dinamically
                 var deviceName = document.createElement("h4");
@@ -56,7 +60,7 @@ $("document").ready(
                 devicePanel.setAttribute("id", "panel-product");
                 
                 //appending all the elements to the panel
-                devicePanel.appendChild(deviceImage);
+                devicePanel.appendChild(deviceLink);
                 devicePanel.appendChild(deviceName);
                 devicePanel.appendChild(devicePrice);
                 

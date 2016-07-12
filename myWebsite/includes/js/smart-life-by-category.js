@@ -28,14 +28,14 @@ $("document").ready(
             
             for(i=0;i<smartlife.length;i++) {
                 
-          //      var urlSmartLife = "smart-life.html?idclasse=" + myClass + "?idcategoria=" + prodotti[i].idcategoria + "?idprodotti=" + prodotti[i].idprodotto;
                     
                 //creating images dinamically
                 var smartLifeImage = document.createElement("img");
                 var urlImage = "images/" + smartlife[i].fotosmartlife;
                 smartLifeImage.setAttribute('src', urlImage);
                 smartLifeImage.setAttribute("class", "img-responsive");
-                   
+        
+    
                 //creating name dinamically
                 var smartLifeName = document.createElement("h4");
                 smartLifeName.setAttribute("class", "text-center");
@@ -45,6 +45,8 @@ $("document").ready(
                     
                 //creating discover button dinamically
                 var discoverButton = document.createElement("a");
+                var urlSmartLife = "smart-life.html?idcategoria=" + smartlife[i].idcategoria + "?idprodotti=" + smartlife[i].idsmartlife;
+                discoverButton.setAttribute("href",urlSmartLife);
                 var discover = document.createTextNode("Discover");
                 discoverButton.appendChild(discover);
                 discoverButton.setAttribute("class", "btn btn-primary btn-block");
