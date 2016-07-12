@@ -2,16 +2,18 @@ $("document").ready(
     function(){
     
     $( "#device" ).empty();
-            
-    var category = location.search.split('idcategory=')[1];
     
+    var idprodotti=1;    
+    var category = location.search.split('idcategory=')[1];
+    console.info(category);
     $.ajax({
         method: "POST",
         crossDomain: true,
         
-        url: "/includes/php/getDevicesByCategory.php?id="+category, //Relative or absolute path to file.phpfile
+        url: "includes/php/getDevicesByCategory.php?id="+category, //Relative or absolute path to file.phpfile
         async: true,
         
+        data: {prodotti:idprodotti},
         success: function(response) {
             var devices=JSON.parse(response);
             
@@ -67,4 +69,4 @@ $("document").ready(
         }
     });
 
-}
+})

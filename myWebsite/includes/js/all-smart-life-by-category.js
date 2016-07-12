@@ -1,15 +1,14 @@
 $("document").ready(
     function(){ 
-        var idcategoria=1;
+        //var idcategoria=1;
         $.ajax({ 
             method: "POST", 
             crossDomain: true, 
             url: "includes/php/getDevicesCategories.php", //Relative or absolute path to file.phpfile 
-            data: {deviceCategories:idcategoria}, 
+            //data: {deviceCategories:idcategoria}, 
             success: function(response) { 
-                 console.log(response);
+                
                 var deviceCategories=JSON.parse(response);
-                console.log(response);
                 var container=document.getElementById("main");
                 var i=0;
                 

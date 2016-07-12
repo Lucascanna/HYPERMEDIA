@@ -5,7 +5,7 @@ define('MYSQL_NUM',MYSQLI_NUM);
 define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
-//var_dump($id);
+var_dump($id);
 
 $mysqli = new mysqli("localhost", "root", "", "timdb");
 
