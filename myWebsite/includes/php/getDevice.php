@@ -18,7 +18,7 @@ else {
     }
     
     $result = $mysqli->query($query);
-    
+
     if($result->num_rows >0)
     {
         $myArray = array();
