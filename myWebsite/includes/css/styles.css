@@ -24,11 +24,22 @@ footer{
 /* --------------------------------------
    Typography
    -------------------------------------- */
-#containerWhoWeAre{
-    margin-top: 110px;
+#innovation{
+    margin-top: -15px;
 }
 
-#containerWhoWeAre .col-sm-4, .col-sm-8 {
+#innovation .col-sm-4, .col-sm-8 {
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
+}
+
+#testimonials{
+    margin-top: -15px;
+}
+
+#testimonials .col-sm-5, .col-sm-7, .col-sm-3, .col-sm-9 {
     float:none;
     display:inline-block;
     vertical-align:middle;
@@ -131,5 +142,5 @@ html, body {
 
 /* Large desktop */
 @media (min-width: 1200px) {
-	
+   
 }
