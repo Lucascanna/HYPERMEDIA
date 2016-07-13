@@ -10,19 +10,19 @@ $mysqli = new mysqli("localhost", "root", "", "timdb");
 
 if (mysqli_connect_errno()) {
     echo "Error to connect to DBMS: ".mysqli_connect_error();
-    exit();
+    exit(); 
 }
 else {
-    $query ="   SELECT * FROM prodotti 
-                WHERE prodotti.idprodotto = '".$id."'";
-    
+    $query = " SELECT * FROM prodotti, smartlife, prodottosmartlife
+               WHERE prodotti.idprodotto = '".$id."' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife";
+
     $result = $mysqli->query($query);
 
     if($result->num_rows >0)
     {
         $myArray = array();
         while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
+            $myArray[] = array_map('utf8_encode', $row);		
         }
         echo json_encode($myArray);
     }

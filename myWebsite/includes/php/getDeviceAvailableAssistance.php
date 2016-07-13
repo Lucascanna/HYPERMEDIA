@@ -13,21 +13,21 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query ="   SELECT * FROM prodotti 
-                WHERE prodotti.idprodotto = '".$id."'";
-    
+    $query = " SELECT * FROM prodotti, assistenza, prodottoassistenza
+               WHERE prodotti.idprodotto = '".$id."' AND prodotti.idprodotto = prodottoassistenza.idprodotto AND assistenza.idassistenza = prodottoassistenza.idassistenza";
+
     $result = $mysqli->query($query);
 
     if($result->num_rows >0)
     {
         $myArray = array();
         while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
+            $myArray[] = array_map('utf8_encode', $row);	
         }
         echo json_encode($myArray);
     }
 
-    $result->close();
+    $result->close();    
     $mysqli->close();
 }
 ?>

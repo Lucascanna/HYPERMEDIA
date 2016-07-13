@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-define('MYSQL_BOTH',MYSQLI_BOTH);
-define('MYSQL_NUM',MYSQLI_NUM);
-define('MYSQL_ASSOC',MYSQLI_ASSOC);
+//define('MYSQL_BOTH',MYSQLI_BOTH);
+//define('MYSQL_NUM',MYSQLI_NUM);
+//define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
 
@@ -15,7 +15,7 @@ if (mysqli_connect_errno()) {
 else {
     $query ="   SELECT * FROM smartlife, categoriesmartlife 
                 WHERE categoriesmartlife.idcategoria=smartlife.idcategoria AND smartlife.idsmartlife = '".$id."'";
-    }
+
     
     $result = $mysqli->query($query);
     
@@ -30,4 +30,5 @@ else {
 
     $result->close();
     $mysqli->close();
+}
 ?>
