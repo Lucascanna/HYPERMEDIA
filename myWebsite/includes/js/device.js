@@ -13,6 +13,23 @@ $("document").ready(
         success: function(response) {
             var device=JSON.parse(response);
             
+            //setting orientation info
+            var categoryInfo=document.getElementById("category-info");
+            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idcategoria;
+            var categoryInfoLink=document.createElement("a");
+            categoryInfoLink.setAttribute("href",urlCategoryInfo);
+            var categoryInfoName=document.createTextNode(device[0].nomecategoria);
+            categoryInfoLink.appendChild(categoryInfoName);
+            categoryInfo.appendChild(categoryInfoLink);
+            var deviceInfo=document.getElementById("device-info");
+            var deviceInfoName=document.createTextNode(device[0].nomeprodotto);
+            deviceInfo.appendChild(deviceInfoName);
+            
+            //setting A2A links
+            var characteristicsLink=document.getElementById("technical-characteristics");
+            var characteristicsurl="device-characteristics.html?iddevice="+device[0].idprodotto;
+            characteristicsLink.setAttribute("href", characteristicsurl);
+            
             //creating device image
             var deviceImage = document.createElement("img");
             var urlImage = "images/" + device[0].fotoprodotto;

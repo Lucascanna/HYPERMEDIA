@@ -13,7 +13,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query ="   SELECT * FROM prodotti 
+    $query = "  SELECT * FROM prodotti 
                 WHERE prodotti.idprodotto = '".$id."'";
     
     $result = $mysqli->query($query);

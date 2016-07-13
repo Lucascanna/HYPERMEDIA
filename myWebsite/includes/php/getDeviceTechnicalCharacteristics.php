@@ -13,7 +13,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query ="   SELECT tecnologia, connettivita, gps, display, processore, memoria, fotocamera, sim, audio, video, dimensioni, peso,               marca, voto, popolarita FROM prodotti
+    $query = "  SELECT tecnologia, connettivita, gps, display, processore, memoria, fotocamera, sim, audio, video, dimensioni, peso,               marca, voto, popolarita FROM prodotti
                 WHERE prodotti.idprodotto = '".$id."'";
 
     $result = $mysqli->query($query);

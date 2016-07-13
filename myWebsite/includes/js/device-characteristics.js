@@ -11,7 +11,24 @@ $("document").ready(
         async: true,
         
         success: function(response) {
-            var technicalCharacteristics=JSON.parse(response);            
+            var technicalCharacteristics=JSON.parse(response); 
+            
+            //setting orientation info
+            var categoryInfo=document.getElementById("category-info");
+            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idcategoria;
+            var categoryInfoLink=document.createElement("a");
+            categoryInfoLink.setAttribute("href",urlCategoryInfo);
+            var categoryInfoName=document.createTextNode(device[0].nomecategoria);
+            categoryInfoLink.appendChild(categoryInfoName);
+            categoryInfo.appendChild(categoryInfoLink);
+            var deviceInfo=document.getElementById("device-info");
+            var deviceInfoName=document.createTextNode(device[0].nomeprodotto);
+            deviceInfo.appendChild(deviceInfoName);
+            
+            //setting A2A links
+            var presentationLink=document.getElementById("active");
+            var presentationurl="device-characteristics.html?iddevice="+device[0].idprodotto;
+            presentationLink.setAttribute("href", presentationurl);
             
             //creating the table with all the technical characteristics
             var characteristicsTable = document.createElement("table");
