@@ -27,8 +27,7 @@ $("document").ready(
             info.appendChild(infoName);
             
             for(i=0;i<devices.length;i++) {
-                
-                    
+                                    
                 //creating images dinamically
                 var deviceImage = document.createElement("img"); 
                 var urlImage = "images/" + devices[i].fotoprodotto;
@@ -44,7 +43,6 @@ $("document").ready(
                 //creating name dinamically
                 var deviceName = document.createElement("h4");
                 deviceName.setAttribute("class", "text-center");
-    //            deviceName.setAttribute("href", urlProdotto);
                 var tempName = document.createTextNode(devices[i].nomeprodotto);
                 deviceName.appendChild(tempName);
                     

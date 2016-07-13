@@ -27,8 +27,7 @@ $("document").ready(
             info.appendChild(infoName);
             
             for(i=0;i<smartlife.length;i++) {
-                
-                    
+                                    
                 //creating images dinamically
                 var smartLifeImage = document.createElement("img");
                 var urlImage = "images/" + smartlife[i].fotosmartlife;
@@ -39,7 +38,6 @@ $("document").ready(
                 //creating name dinamically
                 var smartLifeName = document.createElement("h4");
                 smartLifeName.setAttribute("class", "text-center");
-    //            smartLifeName.setAttribute("href", urlSmartLife);
                 var tempName = document.createTextNode(smartlife[i].nomesmartlife);
                 smartLifeName.appendChild(tempName);
                     
