@@ -80,12 +80,12 @@ footer{
     margin-top: 70px;
 }
 
-.carousel-caption h4{
+#myCarousel .carousel-caption h4{
     text-align: left;
     font-size: 36px;
 }
 
-.carousel-caption h3{
+#myCarousel .carousel-caption h3{
     text-align: left;
     font-size: 28px;
     font-style: italic;
@@ -101,6 +101,24 @@ footer{
 
 #slide3{
     background: url('../../images/banner_hp_tim_in_viaggio_pass.jpg') top center no-repeat;
+}
+
+#projectsCarousel .item{ height: 450px; }
+
+#project1{
+    background: url('../../images/challenge.png') top center no-repeat;
+}
+
+#project2{
+    background: url('../../images/sport.png') top center no-repeat;
+}
+
+#project3{
+    background: url('../../images/cultura.png') top center no-repeat;
+}
+
+#project4{
+    background: url('../../images/ambiente-e-sociale.png') top center no-repeat;
 }
 
 /* --------------------------------------
