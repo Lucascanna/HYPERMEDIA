@@ -20,17 +20,6 @@ $("document").ready(
             deviceImage.setAttribute("class", "img-responsive");
             var deviceImageContainer = document.getElementById("device-image");
             deviceImageContainer.appendChild(deviceImage);
-            
-            //creating "buy" button
-            var buyButton = document.createElement("a");
-     //       buyButton.setAttribute("href", );
-            var text = document.createTextNode("Buy");
-            buyButton.appendChild(text);
-            buyButton.setAttribute("class", "btn btn-primary btn-block");
-     //       buyButton.setAttribute("href","buy.html?idclasse=1&idcategoria=" + myprodotto.idcategoria +"&idprodotti=" + myprodotto.idprodotto);
-            var buttonContainer = document.getElementById("buy-button");
-            buttonContainer.appendChild(buyButton);
-            
 
             //creating device name
             var deviceName = document.createElement("h2");
@@ -69,16 +58,9 @@ $("document").ready(
 		success: function (response) {
 			var smartlife = JSON.parse(response);
             
-            //creating a row for the available smart life buttons
             var availableSmartLifeContainer = document.getElementById("available-smart-life");
 
 			for (i = 0; i < smartlife.length; i++) {
-                
-                if(i % 5 == 0){
-                    currentRow = document.createElement("div");
-                    currentRow.setAttribute("class", "row");
-                    availableSmartLifeContainer.appendChild(currentRow);
-                }
                 
                 //creating buttons for available smart life services
                 var smartLifeButton = document.createElement("a");
@@ -87,7 +69,7 @@ $("document").ready(
         //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
 		//		nomeTemp.setAttribute("href", urlDevice);
                 smartLifeButton.setAttribute("class", "btn btn-small btn-primary");
-                currentRow.appendChild(smartLifeButton);
+                availableSmartLifeContainer.appendChild(smartLifeButton);
 			}
             
 		},
@@ -106,16 +88,9 @@ $("document").ready(
         success: function (response) {
 			var assistance = JSON.parse(response);
         
-		    //creating a row for the available smart life buttons
             var availableAssistenceContainer = document.getElementById("available-assistance");
 
 			for (i = 0; i < assistance.length; i++) {
-                
-                if(i % 5 == 0){
-                    currentRow = document.createElement("div");
-                    currentRow.setAttribute("class", "row");
-                    availableAssistenceContainer.appendChild(currentRow);
-                }
 
                 //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
@@ -124,7 +99,7 @@ $("document").ready(
         //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
 		//		nomeTemp.setAttribute("href", urlDevice);
                 assistanceButton.setAttribute("class", "btn btn-small btn-primary");
-                currentRow.appendChild(assistanceButton);
+                availableAssistenceContainer.appendChild(assistanceButton);
 			}
      
 		},

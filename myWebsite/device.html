@@ -24,6 +24,8 @@
 	   <script src="includes/js/jquery-1.8.2.min.js"></script>
 		
 	</head>
+    
+    
 	<body>
 	<div class="wrapper">
 	<div class="container" id="main">
@@ -38,27 +40,29 @@
             </ol>
         </div><!-- end orientation info -->
              
-        <div class="row" id="device-layout">
-            <div class="col-sm-5 feature">
-                <div id="device-image"></div>
-                <div id="buy-button"></div>
-            </div>
+        
+        <div class="col-sm-5 feature">
+            <div class="row, text-center" id="device-name"></div>
+                <div class="row, text-center" id="device-layout">
+                    <div id="device-image"></div>
+                    <button type="button" class="btn btn-small btn-primary" id="buy-button">Buy</button>
+                </div>
+                </div>
             <div class="col-sm-7 feature">
                 <div id="device-infos">
-                    <div id="device-name"></div>
                     <div id="device-description"></div>
                     <div id="device-price"></div>
                 </div>
-                <div class="panel">
+                <div class="line-separator"></div>
+                <div class="panel" id="available-smart-life-panel">
                     <h5>Available Smart Life Services</h5>
-                    <div id="available-smart-life"></div>
+                    <div class="btn-group" role="group" id="available-smart-life"></div>
                 </div>
-                <div class="panel">
+                <div class="panel" id="available-assistance-panel">
                     <h5>Available assistance Services</h5>
-                    <div id="available-assistance"></div>
+                    <div class="btn-group" role="group" id="available-assistance"></div>
                 </div>
             </div>
-        </div>
     
     </div><!-- end page container -->
     <div class="push"></div>

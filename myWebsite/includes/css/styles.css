@@ -22,7 +22,7 @@ footer{
 }
 
 /* --------------------------------------
-   Typography
+   Who We Are
    -------------------------------------- */
 #containerWhoWeAre{
     margin-top: 110px;
@@ -34,6 +34,40 @@ footer{
     vertical-align:middle;
     margin-right:-4px;
 }
+
+
+/* --------------------------------------
+   Device
+   -------------------------------------- */
+
+#device-infos {
+    padding-top: 80px;
+}
+
+#available-smart-life-panel {
+    padding-top: 0px;
+}
+
+#available-assistance-panel {
+    padding-top: 0px;
+}
+
+#buy-button {
+    padding: 8px 40px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    margin: 0 10px;  
+}
+
+.line-separator{
+    height:1px;
+    background:#717171;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
 
 /* --------------------------------------
    Navbar
