@@ -29,7 +29,6 @@ $("document").ready(
                     return arrayObjectIndexOf(categories,item.idcategory,"idcategory")==position;
                 });
                 
-                console.log(uniqueCategories);
                 
                 //getting 3 promotion devices
                 count=0;

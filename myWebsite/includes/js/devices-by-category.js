@@ -35,7 +35,7 @@ $("document").ready(
                 deviceImage.setAttribute("class", "img-responsive");
         
                 //setting the link to the image
-                var urlProdotto = "device.html?idcategoria=" + devices[i].idcategoria + "?idprodotti=" + devices[i].idprodotto;
+                var urlProdotto = "device.html?iddevice=" + devices[i].idprodotto;
                 var deviceLink = document.createElement("a");
                 deviceLink.setAttribute("href", urlProdotto);
                 deviceLink.appendChild(deviceImage);

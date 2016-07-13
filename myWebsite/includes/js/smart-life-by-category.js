@@ -43,14 +43,14 @@ $("document").ready(
                     
                 //creating discover button dinamically
                 var discoverButton = document.createElement("a");
-                var urlSmartLife = "smart-life.html?idcategoria=" + smartlife[i].idcategoria + "?idprodotti=" + smartlife[i].idsmartlife;
+                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
                 discoverButton.setAttribute("href",urlSmartLife);
                 var discover = document.createTextNode("Discover");
                 discoverButton.appendChild(discover);
                 discoverButton.setAttribute("class", "btn btn-primary btn-block");
                     
                 //creating panel for the smart life
-                 var smartLifePanel = document.createElement("div");
+                var smartLifePanel = document.createElement("div");
                 smartLifePanel.setAttribute("class", "panel");
                 smartLifePanel.setAttribute("id", "panel-product");
                 
