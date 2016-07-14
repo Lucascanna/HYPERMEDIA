@@ -50,5 +50,35 @@ $("document").ready(
     });
         
 
+    $.ajax({
+		method: "POST",
+		crossDomain: true,
+        
+		url: "includes/php/query.php",
+        data: {query: "SELECT * FROM assistenza, prodotti, prodottoassistenza " +
+               "WHERE assistenza.idassistenza = '"+ idAssistance +"' AND assistenza.idassistenza = prodottoassistenza.idprodotto AND prodotti.idprodotto = prodottoassistenza.idassistenza"},
+        
+		success: function (response) {
+			var devices = JSON.parse(response);
+            
+            var availableDevicesContainer = document.getElementById("available-devices-panel");
+
+			for (i = 0; i < devices.length; i++) {
+                
+                //creating buttons for available devices
+                var deviceButton = document.createElement("a");
+				var nameText = document.createTextNode(devices[i].nomeprodotto);
+				deviceButton.appendChild(nameText);
+        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
+		//		nomeTemp.setAttribute("href", urlDevice);
+                deviceButton.setAttribute("class", "btn btn-small btn-primary");
+                availableDevicesContainer.appendChild(deviceButton);
+			}
+            
+		},
+		error: function (request, error) {
+			console.log("Error");
+		}
+	});
                 
 })
