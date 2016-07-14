@@ -4,13 +4,25 @@ $("document").ready(
     $( "#smartlife" ).empty();
             
     var category = location.search.split('idcategory=')[1];
+    var queryString;
+        
+    if(category == 5){
+        queryString =   "SELECT * FROM smartlife " +
+                        "WHERE smartlife.promotionsmartlife = 1 "+
+                        "ORDER BY smartlife.idsmartlife ASC  ";  
+    }
+    else{
+        queryString =   "SELECT DISTINCT * FROM smartlife, categoriesmartlife " +
+                        "WHERE smartlife.idcategoria=categoriesmartlife.idcategoria AND smartlife.idcategoria = '"+category+"' " +
+                        "ORDER BY smartlife.idsmartlife ASC"  ;
+    }
     
     $.ajax({
         method: "POST",
         crossDomain: true,
         
-        url: "includes/php/getSmartLifeByCategory.php?id="+category, //Relative or absolute path to file.phpfile
-        async: true,
+        url: "includes/php/query.php", //Relative or absolute path to file.phpfile
+        data: {query: queryString},
         
         success: function(response) {
             var smartlife=JSON.parse(response);

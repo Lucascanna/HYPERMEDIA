@@ -7,8 +7,9 @@ $("document").ready(
         method: "POST",          
         crossDomain: true, 
         
-        url: "includes/php/getDeviceTechnicalCharacteristics.php?id="+idDevice,
-        async: true,
+        url: "includes/php/query.php",
+        data: {query:   "SELECT tecnologia, connettivita, gps, display, processore, memoria, fotocamera, sim, audio, video, dimensioni,                             peso, marca, voto, popolarita FROM prodotti " +
+                        "WHERE prodotti.idprodotto = '"+ idDevice +"'"},
         
         success: function(response) {
             var technicalCharacteristics=JSON.parse(response); 

@@ -3,12 +3,17 @@ $("document").ready(
         
     var idDevice = location.search.split('iddevice=')[1];
         
+    var query= "SELECT * FROM prodotti" +
+                    "WHERE prodotti.idprodotto = '"+ idDevice +"'";
+    console.log(query);
+        
     $.ajax({
         method: "POST",          
         crossDomain: true, 
         
-        url: "includes/php/getDevice.php?id="+idDevice,
-        async: true,
+        url: "includes/php/query.php",
+        data:{query:"SELECT * FROM prodotti " +
+                    "WHERE prodotti.idprodotto = '"+ idDevice +"'"},
      
         success: function(response) {
             var device=JSON.parse(response);
@@ -69,8 +74,9 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/getDeviceAvailableSmartLife.php?id="+idDevice,
-        async: true,
+		url: "includes/php/query.php",
+        data: {query: "SELECT * FROM prodotti, smartlife, prodottosmartlife " +
+               "WHERE prodotti.idprodotto = '"+ idDevice +"' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife"},
         
 		success: function (response) {
 			var smartlife = JSON.parse(response);
@@ -99,8 +105,9 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/getDeviceAvailableAssistance.php?id="+idDevice,
-        async: true,
+		url: "includes/php/query.php",
+        data: {query:   "SELECT * FROM prodotti, assistenza, prodottoassistenza " +
+                        "WHERE prodotti.idprodotto = '" + idDevice +"' AND prodotti.idprodotto = prodottoassistenza.idprodotto AND assistenza.idassistenza = prodottoassistenza.idassistenza"},
         
         success: function (response) {
 			var assistance = JSON.parse(response);

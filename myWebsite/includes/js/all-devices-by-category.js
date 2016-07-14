@@ -4,7 +4,12 @@ $("document").ready(
         $.ajax({ 
             method: "POST", 
             crossDomain: true, 
-            url: "includes/php/getDevicesAndCategories.php", //Relative or absolute path to file.phpfile  
+            url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
+            
+            data: { query:  "SELECT * " +
+                            "FROM categorieprodotti, prodotti " +
+                            "WHERE categorieprodotti.idcategoria = prodotti.idcategoria " +
+                            "ORDER BY prodotti.idprodotto ASC " },
             
             success: function(response) { 
                 var devices=JSON.parse(response);
