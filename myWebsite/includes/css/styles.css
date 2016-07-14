@@ -78,7 +78,7 @@ footer{
 }
 
 .btn-primary {
-    margin: 0 10px;  
+    margin: 0 10px 5px;  
 }
 
 #device-separator{
@@ -86,6 +86,10 @@ footer{
     background:#717171;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+#device-characteristics{
+     padding-top: 100px;
 }
 
 

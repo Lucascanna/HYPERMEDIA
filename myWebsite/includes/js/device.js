@@ -115,7 +115,7 @@ $("document").ready(
 
                 //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
-				var nameText = document.createTextNode(assistance[i].nomeassistance);
+				var nameText = document.createTextNode(assistance[i].nomeassistenza);
 				assistanceButton.appendChild(nameText);
         //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
 		//		nomeTemp.setAttribute("href", urlDevice);
