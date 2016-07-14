@@ -44,8 +44,6 @@ $("document").ready(
             var tableBody = document.createElement("tbody");
             characteristicsTable.appendChild(tableBody);
             
-            var characteristicsToAdd = device.slice(0, device.lenght);
-            
             var i=0;
             for (Object in device[0]) {
                 if (i>4 && i<17) {

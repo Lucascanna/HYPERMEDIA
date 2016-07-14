@@ -43,7 +43,8 @@ $("document").ready(
             var deviceName = document.createElement("h2");
             var nameText = document.createTextNode(device[0].nomeprodotto);
             deviceName.appendChild(nameText);
-            var deviceNameContainer = document.getElementById("device-name"); deviceNameContainer.appendChild(deviceName);
+            var deviceNameContainer = document.getElementById("device-name");
+            deviceNameContainer.appendChild(deviceName);
             
             //creating device description
             var deviceDescription = document.createElement("p");

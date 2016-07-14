@@ -32,11 +32,20 @@
         
         <div id=orientation-info>
             <ol class="breadcrumb">
-                <li><a href="all-devices-by-category.html">Assistance Services</a></li>
-                <li><a href="#">Category</a></li>
-                <li class="active">Assistance service</li>
+                <li><a href="all-assistance-by-category.html">Assistance Services</a></li>
+                <li><a id="category-info"></a></li>
+                <li class="active" id="assistance-info"></li>
             </ol>
         </div><!-- end orientation info -->
+    
+        
+    <div class="row, text-center" id="assistance-name"></div>
+    <div class="panel">
+        <h3>Description</h3>
+        <div class="row" id="assistance-description"></div>
+    </div>
+        
+        
         
     </div><!-- end page container -->
     <div class="push"></div>
@@ -45,7 +54,6 @@
     <div id="footer"></div><!-- end footer -->
         
 	
-
 	<!-- All Javascript at the bottom of the page for faster page loading -->
 		
 	<!-- First try for the online version of jQuery-->
@@ -59,6 +67,7 @@
 	
     <!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
+    <script src="includes/js/assistance.js"></script>
     <script> 
         $(function(){
             $("#header").load("header.html"); 
