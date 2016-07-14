@@ -4,6 +4,8 @@ header("Access-Control-Allow-Origin: *");
 //define('MYSQL_NUM',MYSQLI_NUM);
 //define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
+$id = intval($_GET['id']);
+
 $mysqli = new mysqli("localhost", "root", "", "timdb");
 
 if (mysqli_connect_errno()) {
@@ -11,20 +13,17 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query = "  SELECT *
-                FROM categoriesmartlife, smartlife
-                WHERE categoriesmartlife.idcategoria = smartlife.idcategoria
-                ORDER BY smartlife.idsmartlife ASC  ";
-    
+    $query = "  SELECT tecnologia, connettivita, gps, display, processore, memoria, fotocamera, sim, audio, video, dimensioni, peso,               marca, voto, popolarita FROM prodotti
+                WHERE prodotti.idprodotto = '".$id."'";
+
     $result = $mysqli->query($query);
 
     if($result->num_rows >0)
     {
-        $myArray = array();
-        while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
-        }
-        echo json_encode($myArray);
+        $row = $result->fetch_array(MYSQL_ASSOC);
+        $myObject = array_map('utf8_encode', $row);
+     
+        echo json_encode($myObject);
     }
 
     $result->close();

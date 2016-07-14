@@ -27,8 +27,7 @@ $("document").ready(
             info.appendChild(infoName);
             
             for(i=0;i<devices.length;i++) {
-                
-                    
+                                    
                 //creating images dinamically
                 var deviceImage = document.createElement("img"); 
                 var urlImage = "images/" + devices[i].fotoprodotto;
@@ -36,7 +35,7 @@ $("document").ready(
                 deviceImage.setAttribute("class", "img-responsive");
         
                 //setting the link to the image
-                var urlProdotto = "device.html?idcategoria=" + devices[i].idcategoria + "?idprodotti=" + devices[i].idprodotto;
+                var urlProdotto = "device.html?iddevice=" + devices[i].idprodotto;
                 var deviceLink = document.createElement("a");
                 deviceLink.setAttribute("href", urlProdotto);
                 deviceLink.appendChild(deviceImage);
@@ -44,7 +43,6 @@ $("document").ready(
                 //creating name dinamically
                 var deviceName = document.createElement("h4");
                 deviceName.setAttribute("class", "text-center");
-    //            deviceName.setAttribute("href", urlProdotto);
                 var tempName = document.createTextNode(devices[i].nomeprodotto);
                 deviceName.appendChild(tempName);
                     

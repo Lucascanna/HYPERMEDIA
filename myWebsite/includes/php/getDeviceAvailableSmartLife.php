@@ -10,27 +10,19 @@ $mysqli = new mysqli("localhost", "root", "", "timdb");
 
 if (mysqli_connect_errno()) {
     echo "Error to connect to DBMS: ".mysqli_connect_error();
-    exit();
+    exit(); 
 }
 else {
-    if($id == 5){
-        $query = "  SELECT * FROM prodotti 
-                    WHERE prodotti.promotionprodotto = 1 
-                    ORDER BY prodotti.idprodotto ASC  ";  
-    }
-    else{
-        $query = "  SELECT DISTINCT * FROM prodotti, categorieprodotti
-                    WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idcategoria = '".$id."' 
-                    ORDER BY prodotti.idprodotto ASC  ";
-    }
-    
+    $query = " SELECT * FROM prodotti, smartlife, prodottosmartlife
+               WHERE prodotti.idprodotto = '".$id."' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife";
+
     $result = $mysqli->query($query);
-    
+
     if($result->num_rows >0)
     {
         $myArray = array();
         while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
+            $myArray[] = array_map('utf8_encode', $row);		
         }
         echo json_encode($myArray);
     }

@@ -2,7 +2,7 @@ $("document").ready(
     function(){
         
     var idDevice = location.search.split('iddevice=')[1];
-    
+        
     $.ajax({
         method: "POST",          
         crossDomain: true, 
@@ -11,41 +11,51 @@ $("document").ready(
         async: true,
      
         success: function(response) {
-            var myprodotto=JSON.parse(response);
+            var device=JSON.parse(response);
+            
+            //setting orientation info
+            var categoryInfo=document.getElementById("category-info");
+            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idcategoria;
+            var categoryInfoLink=document.createElement("a");
+            categoryInfoLink.setAttribute("href",urlCategoryInfo);
+            var categoryInfoName=document.createTextNode(device[0].nomecategoria);
+            categoryInfoLink.appendChild(categoryInfoName);
+            categoryInfo.appendChild(categoryInfoLink);
+            var deviceInfo=document.getElementById("device-info");
+            var deviceInfoName=document.createTextNode(device[0].nomeprodotto);
+            deviceInfo.appendChild(deviceInfoName);
+            
+            //setting A2A links
+            var characteristicsLink=document.getElementById("technical-characteristics");
+            var characteristicsurl="device-characteristics.html?iddevice="+device[0].idprodotto;
+            characteristicsLink.setAttribute("href", characteristicsurl);
             
             //creating device image
             var deviceImage = document.createElement("img");
-            var urlImage = "images/" + myprodotto.fotoprodotto;
-            deviceImage.setAttribute('src', urlImg);
+            var urlImage = "images/" + device[0].fotoprodotto;
+            deviceImage.setAttribute('src', urlImage);
             deviceImage.setAttribute("class", "img-responsive");
-            
-            //creating "buy" button
-      //      document.getElementById("buy").setAttribute("href","buy.html?idclasse=1&idcategoria=" + myprodotto.idcategoria +"&idprodotti=" + myprodotto.idprodotto);
-            
-            //creating container for the image
             var deviceImageContainer = document.getElementById("device-image");
-            priceText.appendChild(imgTemp);
-
+            deviceImageContainer.appendChild(deviceImage);
 
             //creating device name
             var deviceName = document.createElement("h2");
-            var nameText = document.createTextNode(myprodotto.nomeprodotto);
+            var nameText = document.createTextNode(device[0].nomeprodotto);
             deviceName.appendChild(nameText);
+            var deviceNameContainer = document.getElementById("device-name"); deviceNameContainer.appendChild(deviceName);
             
             //creating device description
             var deviceDescription = document.createElement("p");
-            var descriprionText = document.createTextNode(myprodotto.descrizioneprodotto);
+            var descriprionText = document.createTextNode(device[0].descrizioneprodotto);
             deviceDescription.appendChild(descriprionText);
+            var deviceDescriptionContainer = document.getElementById("device-description"); deviceDescriptionContainer.appendChild(deviceDescription);
             
             //creating device price
-            var devicePrice = document.createElement("p");
-            var priceText = document.createTextNode("$"+myprodotto.prezzoprodotto);
+            var devicePrice = document.createElement("h4");
+            var priceText = document.createTextNode("$"+device[0].prezzoprodotto);
             devicePrice.appendChild(priceText);
+            var devicePriceContainer = document.getElementById("device-price"); devicePriceContainer.appendChild(devicePrice);
 
-            //creating container for name, description and price
-            var deviceInfoContainer = document.getElementById("panel-device-infos"); deviceInfoContainer.appendChild(deviceName);
-            deviceInfoContainer.appendChild(deviceDescriprion);
-            deviceInfoContainer.appendChild(devicePrice);        
             
         },
         error: function(request,error) 
@@ -53,5 +63,67 @@ $("document").ready(
             console.log("Error");
         }
     });
+        
 
+    $.ajax({
+		method: "POST",
+		crossDomain: true,
+        
+		url: "includes/php/getDeviceAvailableSmartLife.php?id="+idDevice,
+        async: true,
+        
+		success: function (response) {
+			var smartlife = JSON.parse(response);
+            
+            var availableSmartLifeContainer = document.getElementById("available-smart-life");
+
+			for (i = 0; i < smartlife.length; i++) {
+                
+                //creating buttons for available smart life services
+                var smartLifeButton = document.createElement("a");
+				var nameText = document.createTextNode(smartlife[i].nomesmartlife);
+				smartLifeButton.appendChild(nameText);
+        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
+		//		nomeTemp.setAttribute("href", urlDevice);
+                smartLifeButton.setAttribute("class", "btn btn-small btn-primary");
+                availableSmartLifeContainer.appendChild(smartLifeButton);
+			}
+            
+		},
+		error: function (request, error) {
+			console.log("Error");
+		}
+	});
+        
+    $.ajax({
+		method: "POST",
+		crossDomain: true,
+        
+		url: "includes/php/getDeviceAvailableAssistance.php?id="+idDevice,
+        async: true,
+        
+        success: function (response) {
+			var assistance = JSON.parse(response);
+        
+            var availableAssistenceContainer = document.getElementById("available-assistance");
+
+			for (i = 0; i < assistance.length; i++) {
+
+                //creating buttons for available assistence services
+                var assistanceButton = document.createElement("a");
+				var nameText = document.createTextNode(assistance[i].nomeassistance);
+				assistanceButton.appendChild(nameText);
+        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
+		//		nomeTemp.setAttribute("href", urlDevice);
+                assistanceButton.setAttribute("class", "btn btn-small btn-primary");
+                availableAssistenceContainer.appendChild(assistanceButton);
+			}
+     
+		},
+		error: function (request, error) {
+			console.log("Error");
+		}
+        
+});
+                
 })

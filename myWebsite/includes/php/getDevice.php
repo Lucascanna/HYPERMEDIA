@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-define('MYSQL_BOTH',MYSQLI_BOTH);
-define('MYSQL_NUM',MYSQLI_NUM);
-define('MYSQL_ASSOC',MYSQLI_ASSOC);
+//define('MYSQL_BOTH',MYSQLI_BOTH);
+//define('MYSQL_NUM',MYSQLI_NUM);
+//define('MYSQL_ASSOC',MYSQLI_ASSOC);
 
 $id = intval($_GET['id']);
 
@@ -13,12 +13,11 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    $query ="   SELECT * FROM prodotti 
+    $query = "  SELECT * FROM prodotti 
                 WHERE prodotti.idprodotto = '".$id."'";
-    }
     
     $result = $mysqli->query($query);
-    
+
     if($result->num_rows >0)
     {
         $myArray = array();

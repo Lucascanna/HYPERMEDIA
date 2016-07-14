@@ -27,8 +27,7 @@ $("document").ready(
             info.appendChild(infoName);
             
             for(i=0;i<smartlife.length;i++) {
-                
-                    
+                                    
                 //creating images dinamically
                 var smartLifeImage = document.createElement("img");
                 var urlImage = "images/" + smartlife[i].fotosmartlife;
@@ -39,20 +38,19 @@ $("document").ready(
                 //creating name dinamically
                 var smartLifeName = document.createElement("h4");
                 smartLifeName.setAttribute("class", "text-center");
-    //            smartLifeName.setAttribute("href", urlSmartLife);
                 var tempName = document.createTextNode(smartlife[i].nomesmartlife);
                 smartLifeName.appendChild(tempName);
                     
                 //creating discover button dinamically
                 var discoverButton = document.createElement("a");
-                var urlSmartLife = "smart-life.html?idcategoria=" + smartlife[i].idcategoria + "?idprodotti=" + smartlife[i].idsmartlife;
+                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
                 discoverButton.setAttribute("href",urlSmartLife);
                 var discover = document.createTextNode("Discover");
                 discoverButton.appendChild(discover);
                 discoverButton.setAttribute("class", "btn btn-primary btn-block");
                     
                 //creating panel for the smart life
-                 var smartLifePanel = document.createElement("div");
+                var smartLifePanel = document.createElement("div");
                 smartLifePanel.setAttribute("class", "panel");
                 smartLifePanel.setAttribute("id", "panel-product");
                 

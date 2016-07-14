@@ -25,72 +25,51 @@
 		
 	</head>
 	<body>
-	
+	<div class="wrapper">
 	<div class="container" id="main">
         
-        	   <div class="navbar navbar-fixed-top" id="main-navbar">
-                    <div class="container">
-               	        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
-			                 <span class="icon-bar"></span>
-			                 <span class="icon-bar"></span>
-                        </button>
-               <a class="navbar-brand" href="index.html"><img src="images/tim.png" alt="Your Logo" height="22" width="108"></a>
-               
-               <div class="nav-collapse collapse navbar-responsive-collapse" id="nav-list">
-                   <ul class="nav navbar-nav">
-                       <li>
-                           <a href="all-devices-by-category.html">Devices</a>
-                       </li>
-                       <li>
-                           <a href="all-smart-life-by-category.html">Smart Life</a>
-                       </li>
-                       <li>
-                           <a href="all-assistance-by-category.html">Assistance</a>
-                       </li>
-                   </ul>
-                   
-                   <form class="navbar-form pull-right">
-                       <input type="text" class="form-control" placeholder="Search in this website..." id="searchInput">
-                       <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                   </form><!-- end search form -->
-                   
-                   <ul class="nav navbar-nav pull-right">
-                       <li>
-                           <a href="#">Who we are</a>
-                       </li>
-                       <li>
-                           <a href="#">The group</a>
-                       </li>
-                   </ul>
-                </div>
-               
-               
-           </div>
-		
-	   </div><!-- end navbar -->  
+        <div id="header"></div><!-- end navbar -->  
         
         <div id=orientation-info>
             <ol class="breadcrumb">
                 <li><a href="all-devices-by-category.html">Smart Life Services</a></li>
-                <li><a href="#">Category</a></li>
-                <li class="active">Smart Life</li>
+                <li><a id="category-info"></a></li>
+                <li class="active" id="smartlife-info"></li>
             </ol>
         </div><!-- end orientation info -->
         
-    </div><!-- end page container -->
-        
-    <footer>
-        <div class="conteiner">
+        <div  id="SLNav">       
             <div class="row">
-                <div class="col-sm-8">
-                    <h6>Copyright &copy; 2016 Penco, Scannapieco, Torelli</h6>
-                </div>
-                <div class="col-sm-2 pull-right">
-                    <a class="btn btn-link">Contact us</a>
+                <div class="col-12">
+			     <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a>DESCRIPTION AND ACTIVATION</a></li>
+                    <li><a id="faq-link">FAQ</a>
+			     </ul>
                 </div>
             </div>
         </div>
-    </footer><!-- end footer -->
+        
+        <img class="img-responsive" id="big-image"> <!-- big image -->
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="list-group">
+                    <h1 class="list-group-item-heading" id="header-description" style="margin-top:20px"></h1>
+                    <p class="list-group-item-text" id="text-description"></p>
+                    
+                    <hr class="divider">
+                    
+                    <h3 class="list-group-item-heading" style="margin-top:20px">How to activate</h3>
+                    <p class="list-group-item-text" id="text-activation"></p>
+                </div>
+            </div>         
+        </div> <!-- end description and activation -->
+        
+    </div><!-- end page container -->
+    <div class="push"></div>
+    </div><!-- end wrapper -->
+        
+    <div id="footer"></div><!-- end footer -->
         
 	
 
@@ -107,6 +86,13 @@
 	
     <!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
+    <script src="includes/js/smart-life.js"></script>
+    <script> 
+        $(function(){
+            $("#header").load("header.html"); 
+            $("#footer").load("footer.html"); 
+        });
+    </script>
 	
 	</body>
 </html>

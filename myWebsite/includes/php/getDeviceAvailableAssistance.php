@@ -13,29 +13,21 @@ if (mysqli_connect_errno()) {
     exit();
 }
 else {
-    if($id == 5){
-        $query = "  SELECT * FROM prodotti 
-                    WHERE prodotti.promotionprodotto = 1 
-                    ORDER BY prodotti.idprodotto ASC  ";  
-    }
-    else{
-        $query = "  SELECT DISTINCT * FROM prodotti, categorieprodotti
-                    WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idcategoria = '".$id."' 
-                    ORDER BY prodotti.idprodotto ASC  ";
-    }
-    
+    $query = " SELECT * FROM prodotti, assistenza, prodottoassistenza
+               WHERE prodotti.idprodotto = '".$id."' AND prodotti.idprodotto = prodottoassistenza.idprodotto AND assistenza.idassistenza = prodottoassistenza.idassistenza";
+
     $result = $mysqli->query($query);
-    
+
     if($result->num_rows >0)
     {
         $myArray = array();
         while($row = $result->fetch_array(MYSQL_ASSOC)) {
-            $myArray[] = array_map('utf8_encode', $row);
+            $myArray[] = array_map('utf8_encode', $row);	
         }
         echo json_encode($myArray);
     }
 
-    $result->close();
+    $result->close();    
     $mysqli->close();
 }
 ?>
