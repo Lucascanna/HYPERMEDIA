@@ -3,17 +3,13 @@ $("document").ready(
         
     var idDevice = location.search.split('iddevice=')[1];
         
-    var query= "SELECT * FROM prodotti" +
-                    "WHERE prodotti.idprodotto = '"+ idDevice +"'";
-    console.log(query);
-        
     $.ajax({
         method: "POST",          
         crossDomain: true, 
         
         url: "includes/php/query.php",
-        data:{query:"SELECT * FROM prodotti, categorieprodotti " +
-                    "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
+        data: {query: "SELECT * FROM prodotti, categorieprodotti " +
+        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
      
         success: function(response) {
             var device=JSON.parse(response);
