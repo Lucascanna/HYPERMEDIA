@@ -34,10 +34,10 @@ $("document").ready(
                 descriptionLink.setAttribute("href", descriptionurl);
                 
                 //displaying questions and answer
-                var questions=smartlife[0].domandesmartlife.split(":Q Q: ");
+                var questions=smartlife[0].questionsSmartlife.split(":Q Q: ");
                 questions[0]=questions[0].substr(3,questions[0].length-1);
                 questions[questions.length-1]=questions[questions.length-1].substr(0,questions[questions.length-1].length-3);
-                var answers=smartlife[0].rispostesmartlife.split(":A A: ");
+                var answers=smartlife[0].answersSmartlife.split(":A A: ");
                 answers[0]=answers[0].substr(3,answers[0].length-1);
                 answers[answers.length-1]=answers[answers.length-1].substr(0,answers[answers.length-1].length-3);
                 

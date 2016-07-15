@@ -62,7 +62,7 @@ $("document").ready(
         
 		url: "includes/php/query.php",
         data: {query: "SELECT * FROM products, smartlife, productsmartlife " +
-               "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND product.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
+               "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND products.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
         
 		success: function (response) {
 			var devices = JSON.parse(response);
@@ -85,8 +85,8 @@ $("document").ready(
                 var dropdown=document.getElementById("small-devices-menu");
                 var deviceLink=document.createElement("a");
                 var deviceItem=document.createElement("li");
-                deviceLink.setAttribute("href", "device.html?iddevice=" + availableDevices[i].idProduct);
-                var deviceName=document.createTextNode(availableDevices[i].nameProduct);
+                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idProduct);
+                var deviceName=document.createTextNode(devices[i].nameProduct);
                 deviceLink.appendChild(deviceName);
                 deviceItem.appendChild(deviceLink);
                 dropdown.appendChild(deviceItem);

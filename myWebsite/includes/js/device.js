@@ -86,7 +86,7 @@ $("document").ready(
                 var smartLifeButton = document.createElement("a");
 				var nameText = document.createTextNode(smartlife[i].nameSmartlife);
 				smartLifeButton.appendChild(nameText);
-                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
+                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idSmartlife;
                 smartLifeButton.setAttribute("href", urlSmartLife);
                 smartLifeButton.setAttribute("class", "btn btn-small btn-primary");
                 availableSmartLifeContainer.appendChild(smartLifeButton);
@@ -95,7 +95,7 @@ $("document").ready(
                 var dropdown1=document.getElementById("small-smart-life-menu");
                 var smartLifeLink=document.createElement("a");
                 var smartLifeItem=document.createElement("li");
-                smartLifeLink.setAttribute("href", "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife);
+                smartLifeLink.setAttribute("href", "smart-life.html?idsmartlife=" + smartlife[i].idSmartlife);
                 var smartLifeName=document.createTextNode(smartlife[i].namesmartlife);
                 smartLifeLink.appendChild(smartLifeName);
                 smartLifeItem.appendChild(smartLifeLink);
@@ -123,11 +123,11 @@ $("document").ready(
 
 			for (i = 0; i < assistance.length; i++) {
 
-                //creating buttons for available assistence services
+                //creating buttons for available assistence sarvices
                 var assistanceButton = document.createElement("a");
 				var nameText = document.createTextNode(assistance[i].nameAssistance);
 				assistanceButton.appendChild(nameText);
-                var urlAssistance = "assistance.html?idassistance=" + assistance[i].idassistance;
+                var urlAssistance = "assistance.html?idassistance=" + assistance[i].idAssistance;
                 assistanceButton.setAttribute("href", urlAssistance);
                 assistanceButton.setAttribute("class", "btn btn-small btn-primary");
                 availableAssistenceContainer.appendChild(assistanceButton);
@@ -136,7 +136,7 @@ $("document").ready(
                 var dropdown2=document.getElementById("small-assistance-menu");
                 var assistanceLink=document.createElement("a");
                 var assistanceItem=document.createElement("li");
-                assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idassistance);
+                assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idAssistance);
                 var assistanceName=document.createTextNode(assistance[i].nameAssistance);
                 assistanceLink.appendChild(assistanceName);
                 assistanceItem.appendChild(assistanceLink);
