@@ -20,27 +20,30 @@ SET time_zone = "+00:00";
 -- Database: `timdb`
 --
 
+CREATE DATABASE timdb;
+USE timdb;
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `assistenza`
+-- Structure of table `assistance`
 --
 
-CREATE TABLE `assistenza` (
-  `idassistenza` int(11) NOT NULL,
-  `nomeassistenza` varchar(40) COLLATE utf8_bin NOT NULL,
-  `descrizioneassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `domandeassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `risposteassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `idcategoria` int(11) NOT NULL,
-  `highlightsboolean` smallint(1) NOT NULL DEFAULT '0'
+CREATE TABLE `assistance` (
+  `idAssistance` int(11) NOT NULL,
+  `nameAssistance` varchar(40) COLLATE utf8_bin NOT NULL,
+  `descriptionAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `questionsAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `answersAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `idCategory` int(11) NOT NULL,
+  `highlightsBoolean` smallint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `assistenza`
+-- Dump of data for table `assistance`
 --
 
-INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassistenza`, `domandeassistenza`, `risposteassistenza`, `idcategoria`, `highlightsboolean`) VALUES
+INSERT INTO `assistance` (`idAssistance`, `nameAssistance`, `descriptionAssistance`, `questionsAssistance`, `answersAssistance`, `idCategory`, `highlightsBoolean`) VALUES
 (1, 'Attivazione linea di casa', 'Richiedere l’attivazione di una linea telefonica di casa è molto semplice, puoi: richiederla online, chiamare il Servizio Clienti linea fissa 187, o recarti presso un Negozio TIM.', 'Q: Quali documenti sono necessari?:Q Q: Quali sono le diverse tipologie di linea telefonica di casa?:Q', 'A: Dovrai fornire in visione i seguenti documenti:\r\ndocumento di identità del titolare linea codice fiscale del titolare linea.:A A: Linea telefonica principale, linea telefonica aggiuntiva, lisnea ISDN :A', 1, 1),
 (2, 'Trasloco', 'Il trasloco è un operazione che ti consente di spostare la tua linea telefonica presso una nuova abitazione, nella stessa città o in una città diversa. Puoi gestirla direttamente online basta registrarsi all’Area Clienti.', 'Q: Cosa è il trasloco di una linea telefonica?:Q Q: Posso mantenere il mio numero telefonico?:Q', 'A: Il trasloco ti permette di trasferire la tua linea telefonica presso una nuova abitazione, nella stessa città o in una città diversa.:A A: Se la nuova abitazione si trova nello stesso distretto telefonico di quella di origine, salvo problemi tecnici, sarà possibile mantenere il vecchio numero telefonico. Fino al momento dell’attivazione della linea nella tua nuova abitazione potrai continuare ad utilizzare la linea telefonica nella tua vecchia abitazione.:A', 1, 0),
 (3, 'Subentro', 'Il subentro ti permette di modificare l intestazione di una linea telefonica attiva nella stessa sede dove si trova l impianto garantendo così la continuità nell emissione delle fatture', 'Q: Subentro tra coniugi separati:Q Q: Riepilogo Costi:Q', 'A: Questa tipologia di subentro permette di variare gratuitamente l intestazione del contratto telefonico a favore del coniuge assegnatario della residenza a seguito di separazione, senza interruzione, nell utilizzo della linea telefonica.:A A: Per qualsiasi tipo di subentro, il nuovo intestatario deve corrispondere, a titolo di "Anticipo Conversazioni" un importo di 8 €.:A', 1, 0),
@@ -95,21 +98,21 @@ INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassisten
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `categorieassistenza`
+-- Struttura della tabella `categoriesAssistance`
 --
 
-CREATE TABLE `categorieassistenza` (
-  `idcategoria` int(11) NOT NULL,
-  `nomecategoria` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `fotocategoria` varchar(30) COLLATE utf8_bin NOT NULL,
-  `descrizionecategoria` mediumtext COLLATE utf8_bin NOT NULL
+CREATE TABLE `categoriesAssistance` (
+  `idCategory` int(11) NOT NULL,
+  `nameCategory` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `photoCategory` varchar(30) COLLATE utf8_bin NOT NULL,
+  `descriptionCategory` mediumtext COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `categorieassistenza`
+-- Dump of data for tabel `categoriesAssistance`
 --
 
-INSERT INTO `categorieassistenza` (`idcategoria`, `nomecategoria`, `fotocategoria`, `descrizionecategoria`) VALUES
+INSERT INTO `categoriesAssistance` (`idCategory`, `nameCategory`, `photoCategory`, `descriptionCategory`) VALUES
 (1, 'Gestione Linea e Servizi', 'gestionelinea.png', 'Tutto per la gestione di linea fissa e mobile per te.\n'),
 (2, 'Supporto Tecnico', 'supportotecnico.png', 'Problemi di configurazione e installazione? non più!\n'),
 (3, 'Controllo Costi', 'controllocosti.png', 'Tutto ciò che devi sapere per monitorare i tuoi dati.\n'),
@@ -122,13 +125,13 @@ INSERT INTO `categorieassistenza` (`idcategoria`, `nomecategoria`, `fotocategori
 -- Struttura della tabella `productassistance`
 --
 
-CREATE TABLE `productassistance` (
+CREATE TABLE `productAssistance` (
   `idProduct` int(11) NOT NULL,
   `idAssistance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `productassistance`
+-- Dump dei dati per la tabella `productAssistance`
 --
 
 INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
