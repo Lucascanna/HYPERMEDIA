@@ -8,8 +8,8 @@ $("document").ready(
             crossDomain: true, 
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
             
-            data: {query:   "SELECT * FROM smartlife, categoriesmartlife "+ 
-                            "WHERE categoriesmartlife.idcategoria=smartlife.idcategoria AND smartlife.idsmartlife = '" +idDevice+ "'"},
+            data: {query:   "SELECT * FROM smartlife, smartlifecategories "+ 
+                            "WHERE smartlifecategories.idCategory=smartlife.idCategory AND smartlife.idSmartlife = '" +idDevice+ "'"},
             
             success: function(response) { 
                 
@@ -18,19 +18,19 @@ $("document").ready(
                 
                 //setting orientation info
                 var categoryInfo=document.getElementById("category-info");
-                var urlCategoryInfo="smart-life-by-category.html?idcategory=" +smartlife[0].idcategoria;
+                var urlCategoryInfo="smart-life-by-category.html?idcategory=" +smartlife[0].idCategory;
                 var categoryInfoLink=document.createElement("a");
                 categoryInfoLink.setAttribute("href",urlCategoryInfo);
-                var categoryInfoName=document.createTextNode(smartlife[0].nomecategoria);
+                var categoryInfoName=document.createTextNode(smartlife[0].nameCategory);
                 categoryInfoLink.appendChild(categoryInfoName);
                 categoryInfo.appendChild(categoryInfoLink);
                 var smartlifeInfo=document.getElementById("smartlife-info");
-                var smartlifeInfoName=document.createTextNode(smartlife[0].nomesmartlife);
+                var smartlifeInfoName=document.createTextNode(smartlife[0].nameSmartlife);
                 smartlifeInfo.appendChild(smartlifeInfoName);
     
                 //setting description link
                 var descriptionLink=document.getElementById("description-link");
-                var descriptionurl="smart-life.html?idsmartlife="+smartlife[0].idsmartlife;
+                var descriptionurl="smart-life.html?idsmartlife="+smartlife[0].idSmartlife;
                 descriptionLink.setAttribute("href", descriptionurl);
                 
                 //displaying questions and answer

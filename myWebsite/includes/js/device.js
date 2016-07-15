@@ -8,32 +8,32 @@ $("document").ready(
         crossDomain: true, 
         
         url: "includes/php/query.php",
-        data: {query: "SELECT * FROM prodotti, categorieprodotti " +
-        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
+        data: {query: "SELECT * FROM products, productscategories " +
+        "WHERE products.idCategory=productscategories.idCategory AND products.idProduct = '"+ idDevice +"'"},
      
         success: function(response) {
             var device=JSON.parse(response);
             
             //setting orientation info
             var categoryInfo=document.getElementById("category-info");
-            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idcategoria;
+            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idCategory;
             var categoryInfoLink=document.createElement("a");
             categoryInfoLink.setAttribute("href",urlCategoryInfo);
-            var categoryInfoName=document.createTextNode(device[0].nomecategoria);
+            var categoryInfoName=document.createTextNode(device[0].nameCategory);
             categoryInfoLink.appendChild(categoryInfoName);
             categoryInfo.appendChild(categoryInfoLink);
             var deviceInfo=document.getElementById("device-info");
-            var deviceInfoName=document.createTextNode(device[0].nomeprodotto);
+            var deviceInfoName=document.createTextNode(device[0].nameProduct);
             deviceInfo.appendChild(deviceInfoName);
             
             //setting A2A links
             var characteristicsLink=document.getElementById("technical-characteristics");
-            var characteristicsurl="device-characteristics.html?iddevice="+device[0].idprodotto;
+            var characteristicsurl="device-characteristics.html?iddevice="+device[0].idProduct;
             characteristicsLink.setAttribute("href", characteristicsurl);
             
             //creating device image
             var deviceImage = document.createElement("img");
-            var urlImage = "images/" + device[0].fotoprodotto;
+            var urlImage = "images/" + device[0].photoProduct;
             deviceImage.setAttribute('src', urlImage);
             deviceImage.setAttribute("class", "img-responsive");
             var deviceImageContainer = document.getElementById("device-image");
@@ -41,20 +41,20 @@ $("document").ready(
 
             //creating device name
             var deviceName = document.createElement("h2");
-            var nameText = document.createTextNode(device[0].nomeprodotto);
+            var nameText = document.createTextNode(device[0].nameProduct);
             deviceName.appendChild(nameText);
             var deviceNameContainer = document.getElementById("device-name");
             deviceNameContainer.appendChild(deviceName);
             
             //creating device description
             var deviceDescription = document.createElement("p");
-            var descriprionText = document.createTextNode(device[0].descrizioneprodotto);
+            var descriprionText = document.createTextNode(device[0].descriptionProduct);
             deviceDescription.appendChild(descriprionText);
             var deviceDescriptionContainer = document.getElementById("device-description"); deviceDescriptionContainer.appendChild(deviceDescription);
             
             //creating device price
             var devicePrice = document.createElement("h4");
-            var priceText = document.createTextNode("$"+device[0].prezzoprodotto);
+            var priceText = document.createTextNode("$"+device[0].priceProduct);
             devicePrice.appendChild(priceText);
             var devicePriceContainer = document.getElementById("device-price"); devicePriceContainer.appendChild(devicePrice);
 
@@ -72,8 +72,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query: "SELECT * FROM prodotti, smartlife, prodottosmartlife " +
-               "WHERE prodotti.idprodotto = '"+ idDevice +"' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife"},
+        data: {query: "SELECT * FROM products, smartlife, productSmartlife " +
+               "WHERE products.idProduct = '"+ idDevice +"' AND products.idProduct = productSmartlife.idProduct AND smartlife.idSmartlife = productSmartlife.idSmartlife"},
         
 		success: function (response) {
 			var smartlife = JSON.parse(response);
@@ -84,7 +84,7 @@ $("document").ready(
                 
                 //creating buttons for available smart life services
                 var smartLifeButton = document.createElement("a");
-				var nameText = document.createTextNode(smartlife[i].nomesmartlife);
+				var nameText = document.createTextNode(smartlife[i].nameSmartlife);
 				smartLifeButton.appendChild(nameText);
                 var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
                 smartLifeButton.setAttribute("href", urlSmartLife);
@@ -113,8 +113,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query:   "SELECT * FROM prodotti, assistenza, prodottoassistenza " +
-                        "WHERE prodotti.idprodotto = '" + idDevice +"' AND prodotti.idprodotto = prodottoassistenza.idprodotto AND assistenza.idassistenza = prodottoassistenza.idassistenza"},
+        data: {query:   "SELECT * FROM products, assistance, productAssistance " +
+                        "WHERE products.idProduct = '" + idDevice +"' AND products.idProduct = productAssistance.idProduct AND assistance.idAssistance = productAssistance.idAssistance"},
         
         success: function (response) {
 			var assistance = JSON.parse(response);
@@ -125,7 +125,7 @@ $("document").ready(
 
                 //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
-				var nameText = document.createTextNode(assistance[i].nomeassistenza);
+				var nameText = document.createTextNode(assistance[i].nameAssistance);
 				assistanceButton.appendChild(nameText);
                 var urlAssistance = "assistance.html?idassistance=" + assistance[i].idassistenza;
                 assistanceButton.setAttribute("href", urlAssistance);
@@ -137,7 +137,7 @@ $("document").ready(
                 var assistanceLink=document.createElement("a");
                 var assistanceItem=document.createElement("li");
                 assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idassistenza);
-                var assistanceName=document.createTextNode(assistance[i].nomeassistenza);
+                var assistanceName=document.createTextNode(assistance[i].nameAssistance);
                 assistanceLink.appendChild(assistanceName);
                 assistanceItem.appendChild(assistanceLink);
                 dropdown2.appendChild(assistanceItem);

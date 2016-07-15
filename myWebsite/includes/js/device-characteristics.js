@@ -8,32 +8,32 @@ $("document").ready(
         crossDomain: true, 
         
         url: "includes/php/query.php",
-        data: {query: "SELECT * FROM prodotti, categorieprodotti " +
-        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
+        data: {query: "SELECT * FROM products, productscategories " +
+        "WHERE products.idCategory=productscategories.idCategory AND products.idProduct = '"+ idDevice +"'"},
         
         success: function(response) {
             var device=JSON.parse(response);
             
             //setting orientation info
             var categoryInfo=document.getElementById("category-info");
-            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idcategoria;
+            var urlCategoryInfo="devices-by-category.html?idcategory=" +device[0].idCategory;
             var categoryInfoLink=document.createElement("a");
             categoryInfoLink.setAttribute("href",urlCategoryInfo);
-            var categoryInfoName=document.createTextNode(device[0].nomecategoria);
+            var categoryInfoName=document.createTextNode(device[0].nameCategory);
             categoryInfoLink.appendChild(categoryInfoName);
             categoryInfo.appendChild(categoryInfoLink);
             var deviceInfo=document.getElementById("device-info");
-            var deviceInfoName=document.createTextNode(device[0].nomeprodotto);
+            var deviceInfoName=document.createTextNode(device[0].nameProduct);
             deviceInfo.appendChild(deviceInfoName);
             
             //setting A2A links
             var presentationLink=document.getElementById("presentation");
-            var presentationurl="device.html?iddevice="+device[0].idprodotto;
+            var presentationurl="device.html?iddevice="+device[0].idProduct;
             presentationLink.setAttribute("href", presentationurl);
             
             //creating device name
             var deviceName = document.createElement("h2");
-            var nameText = document.createTextNode(device[0].nomeprodotto);
+            var nameText = document.createTextNode(device[0].nameProduct);
             deviceName.appendChild(nameText);
             var deviceNameContainer = document.getElementById("device-name");
             deviceNameContainer.appendChild(deviceName);
