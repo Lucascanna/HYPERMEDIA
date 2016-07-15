@@ -43,9 +43,17 @@
         <div class="line-separator" id="assistance-separator"></div>
         <h3>Description</h3>
         <div class="row" id="assistance-description"></div>
-        <div class="panel" id="available-devices-panel">
-            <h5>Available for the following devices</h5>
+        <div class="panel hidden-sm" id="available-devices-panel">
+            <h5>Available for the following devices:</h5>
             <div class="btn-group" role="group" id="available-devices"></div>
+        </div>
+        <div class="dropdown visible-sm"> 
+            <button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown" style="margin-top:5%">
+                Available for the following devices:
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-left btn-block" id="small-devices-menu" role=menu>
+            </ul>
         </div>
     </div>
         

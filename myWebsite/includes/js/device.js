@@ -86,10 +86,20 @@ $("document").ready(
                 var smartLifeButton = document.createElement("a");
 				var nameText = document.createTextNode(smartlife[i].nomesmartlife);
 				smartLifeButton.appendChild(nameText);
-        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
-		//		nomeTemp.setAttribute("href", urlDevice);
+                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
+                smartLifeButton.setAttribute("href", urlSmartLife);
                 smartLifeButton.setAttribute("class", "btn btn-small btn-primary");
                 availableSmartLifeContainer.appendChild(smartLifeButton);
+                
+                //creating elements for smart life dropdown menu
+                var dropdown1=document.getElementById("small-smart-life-menu");
+                var smartLifeLink=document.createElement("a");
+                var smartLifeItem=document.createElement("li");
+                smartLifeLink.setAttribute("href", "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife);
+                var smartLifeName=document.createTextNode(smartlife[i].nomesmartlife);
+                smartLifeLink.appendChild(smartLifeName);
+                smartLifeItem.appendChild(smartLifeLink);
+                dropdown1.appendChild(smartLifeItem);
 			}
             
 		},
@@ -117,10 +127,20 @@ $("document").ready(
                 var assistanceButton = document.createElement("a");
 				var nameText = document.createTextNode(assistance[i].nomeassistenza);
 				assistanceButton.appendChild(nameText);
-        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
-		//		nomeTemp.setAttribute("href", urlDevice);
+                var urlAssistance = "assistance.html?idassistance=" + assistance[i].idassistenza;
+                assistanceButton.setAttribute("href", urlAssistance);
                 assistanceButton.setAttribute("class", "btn btn-small btn-primary");
                 availableAssistenceContainer.appendChild(assistanceButton);
+                
+                //creating elements for assistance dropdown menu
+                var dropdown2=document.getElementById("small-assistance-menu");
+                var assistanceLink=document.createElement("a");
+                var assistanceItem=document.createElement("li");
+                assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idassistenza);
+                var assistanceName=document.createTextNode(assistance[i].nomeassistenza);
+                assistanceLink.appendChild(assistanceName);
+                assistanceItem.appendChild(assistanceLink);
+                dropdown2.appendChild(assistanceItem);
 			}
      
 		},

@@ -69,10 +69,20 @@ $("document").ready(
                 var deviceButton = document.createElement("a");
 				var nameText = document.createTextNode(devices[i].nomeprodotto);
 				deviceButton.appendChild(nameText);
-        //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
-		//		nomeTemp.setAttribute("href", urlDevice);
+                var urlDevice = "device.html?iddevice=" + devices[i].idprodotto;
+                deviceButton.setAttribute("href", urlDevice);
                 deviceButton.setAttribute("class", "btn btn-small btn-primary");
                 availableDevicesContainer.appendChild(deviceButton);
+                
+                //creating elements for dropdown menu
+                var dropdown=document.getElementById("small-devices-menu");
+                var deviceLink=document.createElement("a");
+                var deviceItem=document.createElement("li");
+                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idprodotto);
+                var deviceName=document.createTextNode(devices[i].nomeprodotto);
+                deviceLink.appendChild(deviceName);
+                deviceItem.appendChild(deviceLink);
+                dropdown.appendChild(deviceItem);
 			}
             
 		},

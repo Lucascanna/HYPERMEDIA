@@ -58,21 +58,37 @@
                     <div id="device-image"></div>
                     <button type="button" class="btn btn-small btn-primary" id="buy-button">Buy</button>
                 </div>
+                <div class="dropdown visible-sm"> 
+                    <button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown" style="margin-top:5%">
+                        Available smart life services: 
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-left btn-block" id="small-smart-life-menu" role=menu>
+                    </ul>
                 </div>
+                <div class="dropdown visible-sm"> 
+                    <button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown" style="margin-top:5%">
+                        Available assistance services: 
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-left btn-block" id="small-assistance-menu" role=menu>
+                    </ul>
+                </div>
+            </div>
             <div class="col-sm-7 feature">
                 <div id="device-infos">
                     <div id="device-description"></div>
                     <div id="device-price"></div>
                 </div>
                 <div class="line-separator" id="device-separator"></div>
-                <div class="panel" id="available-smart-life-panel">
-                    <h5>Available Smart Life Services</h5>
+                <div class="panel hidden-sm" id="available-smart-life-panel">
+                    <h5>Available Smart Life services:</h5>
                     <div class="btn-group" role="group" id="available-smart-life"></div>
                 </div>
-                <div class="panel" id="available-assistance-panel">
-                    <h5>Available assistance Services</h5>
+                <div class="panel hidden-sm" id="available-assistance-panel">
+                    <h5>Available assistance services:</h5>
                     <div class="btn-group" role="group" id="available-assistance"></div>
-                </div>
+                </div>                     
             </div>
     
     </div><!-- end page container -->

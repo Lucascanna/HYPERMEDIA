@@ -65,58 +65,33 @@ $("document").ready(
                "WHERE smartlife.idsmartlife = '"+ idSmartlife +"' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife"},
         
 		success: function (response) {
-			var availableDevices = JSON.parse(response);
+			var devices = JSON.parse(response);
             
             var availableDevicesContainer = document.getElementById("available-devices");
             var count=0;
             var row;
             
-			for (i = 0; i < availableDevices.length; i++) {
+			for (i = 0; i < devices.length; i++) {
                 //creating buttons for available smart life services
-                if(count%4==0){
-                    row=document.createElement("div");
-                    row.setAttribute("class","row");
-                    availableDevicesContainer.appendChild(row);
-                    var coloumn=document.createElement("div");
-                    coloumn.setAttribute("class","col-sm-3");
-                    row.appendChild(coloumn);
-                    var deviceButton = document.createElement("a");
-                    deviceButton.setAttribute("id","btn-related-groups");
-                    var nameText = document.createTextNode(availableDevices[i].nomeprodotto);
-                    deviceButton.appendChild(nameText);
-                    var urlDevice = "device.html?iddevice=" + availableDevices[i].idprodotto;
-                    deviceButton.setAttribute("href", urlDevice);
-                    deviceButton.setAttribute("class", "btn btn-primary btn-block btn-small");
-                    coloumn.appendChild(deviceButton);
-                    count++;
-                }
-                else{
-                    var coloumn=document.createElement("div");
-                    coloumn.setAttribute("class","col-sm-3");
-                    row.appendChild(coloumn);
-                    var deviceButton = document.createElement("a");
-                    deviceButton.setAttribute("id","btn-related-groups");
-                    var nameText = document.createTextNode(availableDevices[i].nomeprodotto);
-                    deviceButton.appendChild(nameText);
-                    var urlDevice = "device.html?iddevice=" + availableDevices[i].idprodotto;
-                    deviceButton.setAttribute("href", urlDevice);
-                    deviceButton.setAttribute("class", "btn btn-primary btn-block btn-small");
-                    coloumn.appendChild(deviceButton);
-                    count++;
-                }
+                var deviceButton = document.createElement("a");
+                var nameText = document.createTextNode(devices[i].nomeprodotto);
+				deviceButton.appendChild(nameText);
+                var urlDevice = "device.html?iddevice=" + devices[i].idprodotto;
+                deviceButton.setAttribute("href", urlDevice);
+                deviceButton.setAttribute("class", "btn btn-small btn-primary");
+                availableDevicesContainer.appendChild(deviceButton);   
                 
                 //creating elements for dropdown menu
-                var dropdown=document.getElementById("small-menu");
+                var dropdown=document.getElementById("small-devices-menu");
                 var deviceLink=document.createElement("a");
                 var deviceItem=document.createElement("li");
-                deviceLink.setAttribute("href", "device.html?iddevice=" + availableDevices[i].idprodotto);
-                var deviceName=document.createTextNode(availableDevices[i].nomeprodotto);
+                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idprodotto);
+                var deviceName=document.createTextNode(devices[i].nomeprodotto);
                 deviceLink.appendChild(deviceName);
                 deviceItem.appendChild(deviceLink);
                 dropdown.appendChild(deviceItem);
-                
-                
-			}
+            }
+
             
 		},
 		error: function (request, error) {
