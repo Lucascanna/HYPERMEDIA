@@ -53,7 +53,17 @@
             <div class="col-sm-6 feature">
                 <img class="img-responsive" id="big-image"> <!-- big image -->
                 
-                <div class="panel" id="available-devices-panel" style="margin-top: 30px">
+                <div class="dropdown hidden-lg">
+                    
+                    <button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown" style="margin-top:5%">
+                        Availble devices
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-left btn-block" id="small-menu" role=menu>
+                    </ul>
+                </div>
+                
+                <div class="panel hidden-sm" id="available-devices-panel" style="margin-top: 30px">
                     <h5>Available for this devices</h5>
                     <div class="btn-group-s" role="group" id="available-devices"></div>
                 </div>
@@ -68,7 +78,8 @@
                     
                     <h3 class="list-group-item-heading" style="margin-top:20px">How to activate</h3>
                     <p class="list-group-item-text" id="text-activation"></p>
-                </div>       
+                </div>
+                
             </div> <!-- end description and activation -->
         </div> <!-- and main row -->
         

@@ -105,6 +105,16 @@ $("document").ready(
                     count++;
                 }
                 
+                //creating elements for dropdown menu
+                var dropdown=document.getElementById("small-menu");
+                var deviceLink=document.createElement("a");
+                var deviceItem=document.createElement("li");
+                deviceLink.setAttribute("href", "device.html?iddevice=" + availableDevices[i].idprodotto);
+                var deviceName=document.createTextNode(availableDevices[i].nomeprodotto);
+                deviceLink.appendChild(deviceName);
+                deviceItem.appendChild(deviceLink);
+                dropdown.appendChild(deviceItem);
+                
                 
 			}
             
