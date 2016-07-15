@@ -1,10 +1,15 @@
 $("document").ready(
     function(){ 
-
+ 
         $.ajax({ 
             method: "POST", 
             crossDomain: true, 
-            url: "includes/php/getSmartLifeAndCategories.php", //Relative or absolute path to file.phpfile  
+            url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
+            
+            data: {query:   "  SELECT * "+
+                            "FROM categoriesmartlife, smartlife "+
+                            "WHERE categoriesmartlife.idcategoria = smartlife.idcategoria "+
+                            "ORDER BY smartlife.idsmartlife ASC "  },
             
             success: function(response) { 
                 var smartlife=JSON.parse(response);

@@ -7,11 +7,12 @@ $("document").ready(
         method: "POST",          
         crossDomain: true, 
         
-        url: "includes/php/getDeviceTechnicalCharacteristics.php?id="+idDevice,
-        async: true,
+        url: "includes/php/query.php",
+        data: {query: "SELECT * FROM prodotti, categorieprodotti " +
+        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
         
         success: function(response) {
-            var technicalCharacteristics=JSON.parse(response); 
+            var device=JSON.parse(response);
             
             //setting orientation info
             var categoryInfo=document.getElementById("category-info");
@@ -26,31 +27,40 @@ $("document").ready(
             deviceInfo.appendChild(deviceInfoName);
             
             //setting A2A links
-            var presentationLink=document.getElementById("active");
-            var presentationurl="device-characteristics.html?iddevice="+device[0].idprodotto;
+            var presentationLink=document.getElementById("presentation");
+            var presentationurl="device.html?iddevice="+device[0].idprodotto;
             presentationLink.setAttribute("href", presentationurl);
+            
+            //creating device name
+            var deviceName = document.createElement("h2");
+            var nameText = document.createTextNode(device[0].nomeprodotto);
+            deviceName.appendChild(nameText);
+            var deviceNameContainer = document.getElementById("device-name");
+            deviceNameContainer.appendChild(deviceName);
             
             //creating the table with all the technical characteristics
             var characteristicsTable = document.createElement("table");
             characteristicsTable.setAttribute("class", "table table-bordered");
             var tableBody = document.createElement("tbody");
             characteristicsTable.appendChild(tableBody);
- 
-            for (Object in technicalCharacteristics) {
-                if (device[Object] != "") {
-                    var tr = document.createElement("tr");          
-                    var title = document.createElement("td");
-                    var titleText = document.createTextNode(Object.charAt(0).toUpperCase() + Object.substring(1));
-                    title.appendChild(tableBody);
-                    var body = document.createElement("td");
-                    var bodyText = document.createTextNode(myprodotto[Object]);
-                    body.appendChild(bodyText);
-                    tr.appendChild(title);
-                    tr.appendChild(body);
-                    tableBody.appendChild(tr);
+            
+            var i=0;
+            for (Object in device[0]) {
+                if (i>4 && i<17) {
+                    var row = document.createElement("tr");          
+                    var column1 = document.createElement("td");
+                    var column1Text = document.createTextNode(Object.charAt(0).toUpperCase() + Object.substring(1));
+                    column1.appendChild(column1Text);
+                    var column2 = document.createElement("td");
+                    var column2Text = document.createTextNode(device[0][Object]);
+                    column2.appendChild(column2Text);
+                    row.appendChild(column1);
+                    row.appendChild(column2);
+                    tableBody.appendChild(row);
                 }
+                i++;
             }
-  
+            
             var deviceCharacteristics=document.getElementById("device-characteristics");
             deviceCharacteristics.appendChild(characteristicsTable);
 

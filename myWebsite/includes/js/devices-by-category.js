@@ -4,13 +4,24 @@ $("document").ready(
     $( "#device" ).empty();
     
     var category = location.search.split('idcategory=')[1];
+    var queryString;
+    if(category == 5){
+        queryString =   " SELECT * FROM prodotti "+
+                        "WHERE prodotti.promotionprodotto = 1 " +
+                        "ORDER BY prodotti.idprodotto ASC " ;  
+    }
+    else{
+        queryString =   " SELECT DISTINCT * FROM prodotti, categorieprodotti "+
+                        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idcategoria = '"+ category + "'"+
+                        "ORDER BY prodotti.idprodotto ASC  ";
+    }
     
     $.ajax({
         method: "POST",
         crossDomain: true,
         
-        url: "includes/php/getDevicesByCategory.php?id="+category, //Relative or absolute path to file.phpfile
-        async: true,
+        url: "includes/php/query.php", //Relative or absolute path to file.phpfile
+        data: { query: queryString},
         
         success: function(response) {
             var devices=JSON.parse(response);

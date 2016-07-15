@@ -26,7 +26,7 @@ footer{
 }
 
 /* --------------------------------------
-   Who We Are
+   Who We Are section
    -------------------------------------- */
 #innovation{
     margin-top: -15px;
@@ -48,6 +48,11 @@ footer{
     display:inline-block;
     vertical-align:middle;
     margin-right:-4px;
+}
+
+#whoWeAreNav{
+    margin-top: 50px;
+    background-color: white;
 }
 
 
@@ -73,13 +78,45 @@ footer{
 }
 
 .btn-primary {
-    margin: 0 10px;  
+    margin: 0 10px 5px;  
 }
 
-.line-separator{
+#device-separator{
     height:1px;
     background:#717171;
     margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#device-characteristics{
+     padding-top: 100px;
+}
+
+
+/* --------------------------------------
+   Assistance
+   -------------------------------------- */
+
+#container{
+    margin: 40px 40px;
+}
+
+#assistance-name{
+    padding-left: 15px;
+}
+
+#assistance-description{
+    padding-left: 15px;
+    padding-bottom: 40px;
+}
+
+#available-devices-panel {
+    padding-top: 0px;
+}
+
+#assistance-separator{
+    height:1px;
+    background:#717171;
     margin-bottom: 40px;
 }
 
@@ -104,10 +141,6 @@ footer{
     
 }
 
-#whoWeAreNav{
-    margin-top: 50px;
-    background-color: white;
-}
    
 /* --------------------------------------
    Carousel

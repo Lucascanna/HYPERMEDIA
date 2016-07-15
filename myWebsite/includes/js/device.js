@@ -7,8 +7,9 @@ $("document").ready(
         method: "POST",          
         crossDomain: true, 
         
-        url: "includes/php/getDevice.php?id="+idDevice,
-        async: true,
+        url: "includes/php/query.php",
+        data: {query: "SELECT * FROM prodotti, categorieprodotti " +
+        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idprodotto = '"+ idDevice +"'"},
      
         success: function(response) {
             var device=JSON.parse(response);
@@ -42,7 +43,8 @@ $("document").ready(
             var deviceName = document.createElement("h2");
             var nameText = document.createTextNode(device[0].nomeprodotto);
             deviceName.appendChild(nameText);
-            var deviceNameContainer = document.getElementById("device-name"); deviceNameContainer.appendChild(deviceName);
+            var deviceNameContainer = document.getElementById("device-name");
+            deviceNameContainer.appendChild(deviceName);
             
             //creating device description
             var deviceDescription = document.createElement("p");
@@ -69,8 +71,9 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/getDeviceAvailableSmartLife.php?id="+idDevice,
-        async: true,
+		url: "includes/php/query.php",
+        data: {query: "SELECT * FROM prodotti, smartlife, prodottosmartlife " +
+               "WHERE prodotti.idprodotto = '"+ idDevice +"' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife"},
         
 		success: function (response) {
 			var smartlife = JSON.parse(response);
@@ -99,8 +102,9 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/getDeviceAvailableAssistance.php?id="+idDevice,
-        async: true,
+		url: "includes/php/query.php",
+        data: {query:   "SELECT * FROM prodotti, assistenza, prodottoassistenza " +
+                        "WHERE prodotti.idprodotto = '" + idDevice +"' AND prodotti.idprodotto = prodottoassistenza.idprodotto AND assistenza.idassistenza = prodottoassistenza.idassistenza"},
         
         success: function (response) {
 			var assistance = JSON.parse(response);
@@ -111,7 +115,7 @@ $("document").ready(
 
                 //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
-				var nameText = document.createTextNode(assistance[i].nomeassistance);
+				var nameText = document.createTextNode(assistance[i].nomeassistenza);
 				assistanceButton.appendChild(nameText);
         //      var urlDevice = "prodottoSmartLife.html?idclasse=2?idcategoria=" +prodotti[i].idcategoria           + "?idprodotti=" + prodotti[i].idsmartlife;
 		//		nomeTemp.setAttribute("href", urlDevice);
