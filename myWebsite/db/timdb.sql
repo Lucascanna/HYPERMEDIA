@@ -470,14 +470,14 @@ INSERT INTO `smartlifecategories` (`idCategory`, `nameCategory`) VALUES
 --
 -- Indici per le tabelle `assistenza`
 --
-ALTER TABLE `assistenza`
-  ADD PRIMARY KEY (`idassistenza`);
+ALTER TABLE `assistance`
+  ADD PRIMARY KEY (`idAssistance`);
 
 --
 -- Indici per le tabelle `categorieassistenza`
 --
-ALTER TABLE `categorieassistenza`
-  ADD PRIMARY KEY (`idcategoria`);
+ALTER TABLE `categoriesAssistance`
+  ADD PRIMARY KEY (`idCategory`);
 
 --
 -- Indici per le tabelle `productassistance`
@@ -522,13 +522,13 @@ ALTER TABLE `smartlifecategories`
 --
 -- AUTO_INCREMENT per la tabella `assistenza`
 --
-ALTER TABLE `assistenza`
-  MODIFY `idassistenza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+ALTER TABLE `assistance`
+  MODIFY `idAssistance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT per la tabella `categorieassistenza`
 --
-ALTER TABLE `categorieassistenza`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `categoriesAssistance`
+  MODIFY `idCategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
