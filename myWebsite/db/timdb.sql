@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Database: `timdb`
 --
 
-CREATE DATABASE timdb;
+CREATE DATABASE IF NOT EXISTS timdb;
 USE timdb;
 
 -- --------------------------------------------------------
@@ -156,7 +156,7 @@ CREATE TABLE `smartlifeCategories` (
 -- Dump of data for table 'smartlifeCategories'
 --
 
-INSERT INTO `categoriesmartlife` (`idcategoria`, `nomecategoria`) VALUES
+INSERT INTO `smartlifeCategories` (`idCategory`, `nameCategory`) VALUES
 (1, 'TV & Entertainment'),
 (2, 'Health and well-being'),
 (3, 'Home and family'),
@@ -195,7 +195,7 @@ CREATE TABLE `products` (
 -- Dump of data for table `products`
 --
 
-INSERT INTO `products` (`idProduct`, `nameProduct`, `photoProduct`, `priceProducts`, `descriptionProduct`, `technology`, `connectivity`, `gps`, `display`, `processor`, `memory`, `camera`, `sim`, `audio`, `video`, `dimensions`, `weight`, `promotionProduct`, `idCategory`) VALUES
+INSERT INTO `products` (`idProduct`, `nameProduct`, `photoProduct`, `priceProduct`, `descriptionProduct`, `technology`, `connectivity`, `gps`, `display`, `processor`, `memory`, `camera`, `sim`, `audio`, `video`, `dimensions`, `weight`, `promotionProduct`, `idCategory`) VALUES
 (1, 'iPhone 6s 16gb', 'iphone6s.jpg', 789, 'Display Retina HD of 4,7" with 3D Touch. Aluminum series 7000 and glass more resistant. Chip A9 with 64 bit-architecture desktop-level. New camera iSight of 12MP with Live Photos. Touch ID. Connections Wi-Fi e 4G LTE faster.1 Long-life battery.2 And more, iOS 9 and iCloud. All this in an elegant unibody shell.\n', 'iOS 9 and iCloud', '4G LTE Advanced1 and Wi-Fi 802.11a/b/g/n/ac with MIMO techonology', 'yes', 'Display Retina HD of 4,7" with 1334x75 risolution', 'Chip A9 with integrated M9 coprocessor of movement', '16 GB', 'Camera iSight of 12 megapixel with Focus Pixels, True Tone Fl', NULL, NULL, '4K video registration at 30 fps, slow-motion (1080p) at 120 fps, Video', '138,3 mm, 67,1 mm, 7,1 m', '143 g', 1, 1),
 (2, 'Nokia Lumia 950', 'lumis.jpg', 500, 'Higher level functions, eccellent design and the best experience with Windows 10: choose Lumia 950 and transform any moment in a big conquest.\r\n', '\r\n4G cat.6/HSDPA 42/UMTS/EDGE/GPRS Frequencies 850/900/1800/1900', 'Wi-Fi - Bluetooth - Micro USB - NFC ', 'Integrated', '5.2” 16 Million colors Touch', 'HexaCore 1.8 GHz', '32 GB', '20 Mpixel/Flash', 'Micro SD up to ', 'MP3 Player', 'Video Recorder&Playback', '45x73,2x8,25 mm\r\n\r\n', '\r\n150 g', 0, 1),
 (3, 'LG G5', 'lg.jpg', 600, 'The new LG G5 is a new kind of smartphone which comes through all limits, with a modular desing completely built in metal which revolutionizes design standards. Exapand functions, interact with innovative LG Friends and try a really innovative smartphone experience. The G5 revolution keeps going with the double wide-angle lens camera, which captures more than what your eyes can see. Also under the sun, because the new display IPS Quantum is richer, brighter and more colored even under directly the light of sun. And it always shows you main notifications even when its not active. New LG G5: what you dont expect, in your own hand.', '4G cat.6/HSDPA42/UMTS/EDGE/GPRS  Frequencies 850/900/1800/1900/210', 'Wi-Fi - Bluetooth – Infrared - USB type C – NFC', 'integrated', '5.3” 16 Million colors Touch', 'Processor Snapdragon™ 820 QuadCore 2.15 GHz - 4G LTE', '32GB\r\nSlot Memory Card Micro SD up to 2TB', '2 back cameras of 16 Mpxl with flash and front camera', 'Nano', 'MP3 Player', 'Video Recorder&Playback', '149,4x73,9x7,3 mm\r\n\r\n', '159 g', 0, 1),
@@ -486,44 +486,38 @@ ALTER TABLE `categorieassistenza`
 --
 -- Indici per le tabelle `categorieprodotti`
 --
-ALTER TABLE `categorieprodotti`
-  ADD PRIMARY KEY (`idcategoria`);
+ALTER TABLE `productsCategories`
+  ADD PRIMARY KEY (`idCategory`);
 
 --
 -- Indici per le tabelle `categoriesmartlife`
 --
-ALTER TABLE `categoriesmartlife`
-  ADD PRIMARY KEY (`idcategoria`);
-
---
--- Indici per le tabelle `classi`
---
-ALTER TABLE `classi`
-  ADD PRIMARY KEY (`idclasse`);
+ALTER TABLE `smartlifeCategories`
+  ADD PRIMARY KEY (`idCategory`);
 
 --
 -- Indici per le tabelle `prodotti`
 --
-ALTER TABLE `prodotti`
-  ADD PRIMARY KEY (`idprodotto`);
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`idProduct`);
 
 --
 -- Indici per le tabelle `prodottoassistenza`
 --
-ALTER TABLE `prodottoassistenza`
-  ADD PRIMARY KEY (`idprodotto`,`idassistenza`);
+ALTER TABLE `productAssistance`
+  ADD PRIMARY KEY (`idProduct`,`idAssistance`);
 
 --
 -- Indici per le tabelle `prodottosmartlife`
 --
-ALTER TABLE `prodottosmartlife`
-  ADD PRIMARY KEY (`idsmartlife`,`idprodotto`);
+ALTER TABLE `productSmartlife`
+  ADD PRIMARY KEY (`idSmartlife`,`idProduct`);
 
 --
 -- Indici per le tabelle `smartlife`
 --
 ALTER TABLE `smartlife`
-  ADD PRIMARY KEY (`idsmartlife`);
+  ADD PRIMARY KEY (`idSmartlife`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -542,8 +536,6 @@ ALTER TABLE `categorieassistenza`
 --
 -- AUTO_INCREMENT per la tabella `classi`
 --
-ALTER TABLE `classi`
-  MODIFY `idclasse` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
