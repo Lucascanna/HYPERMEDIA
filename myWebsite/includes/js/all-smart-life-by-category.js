@@ -7,9 +7,9 @@ $("document").ready(
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
             
             data: {query:   "  SELECT * "+
-                            "FROM categoriesmartlife, smartlife "+
-                            "WHERE categoriesmartlife.idcategoria = smartlife.idcategoria "+
-                            "ORDER BY smartlife.idsmartlife ASC "  },
+                            "FROM smartlifecategories, smartlife "+
+                            "WHERE smartlifecategories.idCategory = smartlife.idCategory "+
+                            "ORDER BY smartlife.idSmartlife ASC "  },
             
             success: function(response) { 
                 var smartlife=JSON.parse(response);
@@ -24,7 +24,7 @@ $("document").ready(
                 
                 //getting all categories
                 for(i=0;i<smartlife.length;i++){
-                    var obj={idcategory:smartlife[i].idcategoria, namecategory:smartlife[i].nomecategoria};
+                    var obj={idcategory:smartlife[i].idCategory, namecategory:smartlife[i].nameCategory};
                     categories[i]=obj;
                 }
                     
@@ -40,7 +40,7 @@ $("document").ready(
                 for(i=0;i<smartlife.length;i++){
                     if(count==3)
                         break;
-                    if(smartlife[i].promotionsmartlife==1){
+                    if(smartlife[i].promotionsSmartlife==1){
                         promotionSmartlife[count]=smartlife[i];
                         count++;
                     }
@@ -80,11 +80,11 @@ $("document").ready(
                     for(j=0; j<smartlife.length;j++){
                         if(count==3)
                             break;
-                        if(smartlife[j].nomecategoria==uniqueCategories[i].namecategory){
+                        if(smartlife[j].nameCategory==uniqueCategories[i].namecategory){
                             var img=document.createElement("img");
                             img.setAttribute("class","img-responsive");
                             img.setAttribute("id", "img-categories");
-                            var urlimg="images/"+smartlife[j].fotosmartlife;
+                            var urlimg="images/"+smartlife[j].photoSmartlife;
                             img.setAttribute("src",urlimg);
                             var coloumnImage=document.createElement("div");
                             coloumnImage.setAttribute("class", "col-sm-4 text-center");
@@ -141,7 +141,7 @@ $("document").ready(
                     var img=document.createElement("img");
                     img.setAttribute("class","img-responsive");
                     img.setAttribute("id", "img-categories");
-                    var urlimg="images/"+promotionSmartlife[i].fotosmartlife;
+                    var urlimg="images/"+promotionSmartlife[i].photoSmartlife;
                     img.setAttribute("src",urlimg);
                     var coloumnImage=document.createElement("div");
                     coloumnImage.setAttribute("class", "col-sm-4");

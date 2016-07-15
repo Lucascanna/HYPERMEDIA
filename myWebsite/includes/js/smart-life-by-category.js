@@ -8,13 +8,13 @@ $("document").ready(
         
     if(category == 5){
         queryString =   "SELECT * FROM smartlife " +
-                        "WHERE smartlife.promotionsmartlife = 1 "+
-                        "ORDER BY smartlife.idsmartlife ASC  ";  
+                        "WHERE smartlife.promotionsSmartlife = 1 "+
+                        "ORDER BY smartlife.idSmartlife ASC  ";  
     }
     else{
-        queryString =   "SELECT DISTINCT * FROM smartlife, categoriesmartlife " +
-                        "WHERE smartlife.idcategoria=categoriesmartlife.idcategoria AND smartlife.idcategoria = '"+category+"' " +
-                        "ORDER BY smartlife.idsmartlife ASC"  ;
+        queryString =   "SELECT DISTINCT * FROM smartlife, smartlifecategories " +
+                        "WHERE smartlife.idCategory=smartlifecategories.idCategory AND smartlife.idCategory = '"+category+"' " +
+                        "ORDER BY smartlife.idSmartlife ASC"  ;
     }
     
     $.ajax({
@@ -35,14 +35,14 @@ $("document").ready(
             if(category==5)
                 infoName=document.createTextNode("Promotions");
             else
-                infoName=document.createTextNode(smartlife[0].nomecategoria);
+                infoName=document.createTextNode(smartlife[0].nameCategory);
             info.appendChild(infoName);
             
             for(i=0;i<smartlife.length;i++) {
                                     
                 //creating images dinamically
                 var smartLifeImage = document.createElement("img");
-                var urlImage = "images/" + smartlife[i].fotosmartlife;
+                var urlImage = "images/" + smartlife[i].photoSmartlife;
                 smartLifeImage.setAttribute('src', urlImage);
                 smartLifeImage.setAttribute("class", "img-responsive");
         
@@ -50,12 +50,12 @@ $("document").ready(
                 //creating name dinamically
                 var smartLifeName = document.createElement("h4");
                 smartLifeName.setAttribute("class", "text-center");
-                var tempName = document.createTextNode(smartlife[i].nomesmartlife);
+                var tempName = document.createTextNode(smartlife[i].nameSmartlife);
                 smartLifeName.appendChild(tempName);
                     
                 //creating discover button dinamically
                 var discoverButton = document.createElement("a");
-                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife;
+                var urlSmartLife = "smart-life.html?idsmartlife=" + smartlife[i].idSmartlife;
                 discoverButton.setAttribute("href",urlSmartLife);
                 var discover = document.createTextNode("Discover");
                 discoverButton.appendChild(discover);
