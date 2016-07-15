@@ -61,8 +61,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query: "SELECT * FROM products, smartlife, productSmartlife " +
-               "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND product.idProduct = productSmartlife.idProduct AND smartlife.idSmartlife = productSmartlife.idSmartlife"},
+        data: {query: "SELECT * FROM products, smartlife, productsmartlife " +
+               "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND product.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
         
 		success: function (response) {
 			var availableDevices = JSON.parse(response);
