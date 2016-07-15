@@ -69,7 +69,7 @@ $("document").ready(
                 var deviceButton = document.createElement("a");
 				var nameText = document.createTextNode(devices[i].nameProduct);
 				deviceButton.appendChild(nameText);
-                var urlDevice = "device.html?iddevice=" + devices[i].idprodotto;
+                var urlDevice = "device.html?iddevice=" + devices[i].idproduct;
                 deviceButton.setAttribute("href", urlDevice);
                 deviceButton.setAttribute("class", "btn btn-small btn-primary");
                 availableDevicesContainer.appendChild(deviceButton);
@@ -78,8 +78,8 @@ $("document").ready(
                 var dropdown=document.getElementById("small-devices-menu");
                 var deviceLink=document.createElement("a");
                 var deviceItem=document.createElement("li");
-                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idprodotto);
-                var deviceName=document.createTextNode(devices[i].nomeprodotto);
+                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idproduct);
+                var deviceName=document.createTextNode(devices[i].nameproduct);
                 deviceLink.appendChild(deviceName);
                 deviceItem.appendChild(deviceLink);
                 dropdown.appendChild(deviceItem);

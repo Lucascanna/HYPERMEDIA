@@ -96,7 +96,7 @@ $("document").ready(
                 var smartLifeLink=document.createElement("a");
                 var smartLifeItem=document.createElement("li");
                 smartLifeLink.setAttribute("href", "smart-life.html?idsmartlife=" + smartlife[i].idsmartlife);
-                var smartLifeName=document.createTextNode(smartlife[i].nomesmartlife);
+                var smartLifeName=document.createTextNode(smartlife[i].namesmartlife);
                 smartLifeLink.appendChild(smartLifeName);
                 smartLifeItem.appendChild(smartLifeLink);
                 dropdown1.appendChild(smartLifeItem);
@@ -127,7 +127,7 @@ $("document").ready(
                 var assistanceButton = document.createElement("a");
 				var nameText = document.createTextNode(assistance[i].nameAssistance);
 				assistanceButton.appendChild(nameText);
-                var urlAssistance = "assistance.html?idassistance=" + assistance[i].idassistenza;
+                var urlAssistance = "assistance.html?idassistance=" + assistance[i].idassistance;
                 assistanceButton.setAttribute("href", urlAssistance);
                 assistanceButton.setAttribute("class", "btn btn-small btn-primary");
                 availableAssistenceContainer.appendChild(assistanceButton);
@@ -136,7 +136,7 @@ $("document").ready(
                 var dropdown2=document.getElementById("small-assistance-menu");
                 var assistanceLink=document.createElement("a");
                 var assistanceItem=document.createElement("li");
-                assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idassistenza);
+                assistanceLink.setAttribute("href", "assistance.html?idassistance=" + assistance[i].idassistance);
                 var assistanceName=document.createTextNode(assistance[i].nameAssistance);
                 assistanceLink.appendChild(assistanceName);
                 assistanceItem.appendChild(assistanceLink);
