@@ -1,2 +1,1 @@
-# HYPERMEDIA
-Tim project
+We used framework BOOTSTRAP

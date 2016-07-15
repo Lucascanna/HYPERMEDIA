@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `assistenza`
 --
 
+CREATE DATABASE timdb;
+USE timdb;
+
 CREATE TABLE `assistenza` (
   `idassistenza` int(11) NOT NULL,
   `nomeassistenza` varchar(40) COLLATE utf8_bin NOT NULL,
