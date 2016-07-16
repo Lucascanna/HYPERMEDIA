@@ -25,6 +25,12 @@ footer{
     max-width: 70%;
 }
 
+#smartlifeRow{
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
+}
 
 /* --------------------------------------
    Who We Are section

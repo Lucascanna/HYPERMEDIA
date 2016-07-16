@@ -51,7 +51,7 @@ $("document").ready(
                     
                     //creating dynamic elements of the page
                     var currentRow=document.createElement("div");
-                    currentRow.setAttribute("class", "row"); 
+                    currentRow.setAttribute("class", "row");
                     var firstColoumn=document.createElement("div");
                     firstColoumn.setAttribute("class", "col-sm-12");
                     var currentPanel=document.createElement("div");
@@ -81,16 +81,30 @@ $("document").ready(
                         if(count==3)
                             break;
                         if(smartlife[j].nameCategory==uniqueCategories[i].namecategory){
-                            var img=document.createElement("img");
-                            img.setAttribute("class","img-responsive");
-                            img.setAttribute("id", "img-categories");
-                            var urlimg="images/"+smartlife[j].photoSmartlife;
-                            img.setAttribute("src",urlimg);
-                            var coloumnImage=document.createElement("div");
-                            coloumnImage.setAttribute("class", "col-sm-4 text-center");
-                            rowImages.appendChild(coloumnImage);
-                            coloumnImage.appendChild(img);
-                            count++;
+                            if(smartlife[j].nameCategory=="Health and well-being"){
+                                var img=document.createElement("img");
+                                img.setAttribute("class","img-responsive");
+                                img.setAttribute("id", "img-categories");
+                                var urlimg="images/"+smartlife[j].photoSmartlife;
+                                img.setAttribute("src",urlimg);
+                                var coloumnImage=document.createElement("div");
+                                coloumnImage.setAttribute("class", "col-sm-12 text-center");
+                                rowImages.appendChild(coloumnImage);
+                                coloumnImage.appendChild(img);
+                                count++;
+                            }
+                            else{
+                                var img=document.createElement("img");
+                                img.setAttribute("class","img-responsive");
+                                img.setAttribute("id", "img-categories");
+                                var urlimg="images/"+smartlife[j].photoSmartlife;
+                                img.setAttribute("src",urlimg);
+                                var coloumnImage=document.createElement("div");
+                                coloumnImage.setAttribute("class", "col-sm-4 text-center");
+                                rowImages.appendChild(coloumnImage);
+                                coloumnImage.appendChild(img);
+                                count++;
+                            }
                         }
                     }
                 
