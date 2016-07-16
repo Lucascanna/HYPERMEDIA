@@ -144,7 +144,7 @@ $("document").ready(
                     var urlimg="images/"+promotionDevices[i].photoProduct;
                     img.setAttribute("src",urlimg);
                     var coloumnImage=document.createElement("div");
-                    coloumnImage.setAttribute("class", "col-sm-4");
+                    coloumnImage.setAttribute("class", "col-sm-4 text-center");
                     rowImages.appendChild(coloumnImage);
                     coloumnImage.appendChild(img);
                 }

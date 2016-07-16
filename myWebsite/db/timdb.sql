@@ -122,16 +122,16 @@ INSERT INTO `categoriesAssistance` (`idCategory`, `nameCategory`, `photoCategory
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productassistance`
+-- Structure of table `productassistance`
 --
 
-CREATE TABLE `productAssistance` (
+CREATE TABLE `productassistance` (
   `idProduct` int(11) NOT NULL,
   `idAssistance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `productAssistance`
+-- Dump of data for table `productAssistance`
 --
 
 INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
@@ -246,7 +246,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `products`
+-- Dump of data for table `products`
 --
 
 INSERT INTO `products` (`idProduct`, `nameProduct`, `photoProduct`, `priceProduct`, `descriptionProduct`, `technology`, `connectivity`, `gps`, `display`, `processor`, `memory`, `camera`, `sim`, `audio`, `video`, `dimensions`, `weight`, `promotionProduct`, `idCategory`) VALUES
