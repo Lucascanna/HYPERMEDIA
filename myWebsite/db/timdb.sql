@@ -122,7 +122,7 @@ INSERT INTO `categoriesAssistance` (`idCategory`, `nameCategory`, `photoCategory
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productassistance`
+-- Structure of table `productassistance`
 --
 
 CREATE TABLE `productassistance` (
@@ -131,7 +131,7 @@ CREATE TABLE `productassistance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `productAssistance`
+-- Dump of data for table `productAssistance`
 --
 
 INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
