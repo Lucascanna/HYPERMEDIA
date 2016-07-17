@@ -9,7 +9,7 @@ $("document").ready(
         
         url: "includes/php/query.php",
         data: {query: "SELECT * FROM assistance, categoriesAssistance " +
-        "WHERE assistance.idAssistance=categoriesAssistance.idcategory AND assistance.idassistance = '"+ idAssistance +"'"},
+        "WHERE assistance.idCategory=categoriesAssistance.idCategory AND assistance.idAssistance = '"+ idAssistance +"'"},
      
         success: function(response) {
             var assistance=JSON.parse(response);
