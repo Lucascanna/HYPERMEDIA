@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 17, 2016 alle 11:08
+-- Creato il: Lug 17, 2016 alle 12:19
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.23
 
@@ -26,14 +26,12 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `assistance`
 --
 
-
 CREATE TABLE `assistance` (
   `idAssistance` int(11) NOT NULL,
   `nameAssistance` varchar(40) COLLATE utf8_bin NOT NULL,
   `descriptionAssistance` longtext COLLATE utf8_bin NOT NULL,
   `idCategory` int(11) NOT NULL,
   `highlightsBoolean` smallint(1) NOT NULL DEFAULT '0'
-    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -73,7 +71,7 @@ INSERT INTO `assistance` (`idAssistance`, `nameAssistance`, `descriptionAssistan
 (30, 'Consumes documentation', 'It is a free service and upon request and help you get every month with your bill, the details of phone calls made and services used.\n\nReport calls made from your phone line indicating the type of call (eg. Local, long distance, etc.) Bid in which the call is part of the date, time, number dialed with the latest figures asterisked , the tariff range, duration and cost.\n\nThe documentation of consumption is available in two modes:\n\nintegral, where all calls are listed\nmore than 26 cents, only lists with phone calls over this amount charged.\n', 3, 1),
 (31, 'Mobile invoice domiciliation', 'Choosing the domiciliation of the current account debit of the invoice is made directly to the bank or post office account.\n\nThis way you no longer have the need to store the payment deadlines, which are carried out without delay.\n\nOf course the bill of the mobile line is sent to you and / or made available on the web in MyTIM Mobile sufficiently in advance before the deadline, so you have the ability to make the necessary checks and, if necessary, ask your bank or the postal agency suspension of payment if there are inconsistencies. The charge is carried out on the last day for payment. You still have the power to reverse a debit domiciled within 8 weeks since it was made.\n\nIf you hold a bank or postal account, you can fill out and send directly online permanent authorization form a debit account. You can do this in the "Modules", selecting "Customers with Subscription" and pressing the "FILL" in the entry "Request Domiciliazione Banking"\n\nAlternatively you can download the pdf version of the form "Request Domiciliazione Banking" which, completed and signed, must be sent in a sealed envelope to the following address:\n\nTelecom Italy S.p.A. c / o ABRAHAM COSTUMER CARE\nPO Box 500-88900 Crotone.\n ', 3, 1),
 (32, 'How to see invoices', 'The landline bill is simple and easy to read because designed inspired by customer feedback. The graphic design, modern and refined, using an ever clearer language for the display of items of expenditure, making it easier to read all the information you need and ensuring greater transparency in the content and in the amounts.\n', 3, 1),
-(33, 'How o pay invoices', 'Transfer to Income Online and save up to 2 € / month for the reception costs of paper bill.', 3, 0),
+(33, 'How to pay invoices', 'Transfer to Income Online and save up to 2 € / month for the reception costs of paper bill.', 3, 0),
 (34, 'Verify remaining credit', 'The remaining credit available, the offers and the status of active bonus on your rechargeable line, are available through the following ways:\n\nRight from your Smartphone, signing into the MyTIM Mobile, currently available for free download in versions for iPhone and smartphones with Android operating system.\nIn the presence of two or more bonus priority is the one with the most immediate expiration.\n\nWe remind you that in the euro bonus can not be used for international calls, for calls to non-geographic numbers (in Italy and abroad) and for roaming traffic (with the exception of traffic data roaming).', 3, 1),
 (35, 'Basic rate for surfing', 'Flat Day is the base rate for the surf the Internet from Smartphone, Tablet PC, and for a maximum of 500MB per day at a cost of 4 € (VAT included).\n\nThe Flat Day base rate intervenes in the absence of active offer data about your line. In this condition if you make an Internet connection takes a 4 € daily fee for 500MB of data traffic to be used within the same day (until 23:59).\n\nThe cost of the Flat Day is only charged on days of actual use to the first connection event. On reaching 500MB of data traffic in the day, the browsing speed is reduced to 32 Kbps at no additional cost. The MB of traffic available in the day are counted to prepaid unit increments of 1KB. Any Internet traffic not consumed in the day is reset.\n\nPlease note:\n\nThe daily rate is valid for Internet browsing in Italy of all APN (ibox.tim.it, wap.tim.it and blackberry.net).\nThe traffic coin purchased is accessible only on national territory until 23:59 the same day.\nIf you have active on your line bid TIM data to navigate from Smatphone, and Tablet PCs, which provides for the automatic renewal weekly or monthly, remember that the renewal takes place within 4 hours from midnight on the expiration date, but if you make data traffic before that the offer has been renewed, it will be charged at the Flat Day. so remember to always verify a successful renewal of your data offering through 40916 (customers Rechargeable) or 40915 (Subscription customers), through the app MyTIM Mobile or via the web by accessing the MyTIM Mobile.\nRemember that TIM allows you to protect your monthly spending to surf the Internet with Smartphone, and Tablet PC. Click here for more details.\nIf you plan to use your Internet browsing, as an alternative to the Flat Day service, we recommend you activate one of the TIM data offers choosing the one that best matches your requirements. For more information about available offers click here or went to a TIM Shop.\n', 3, 0);
 
@@ -116,8 +114,8 @@ CREATE TABLE `productassistance` (
 --
 
 INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
-(1, 22),
 (1, 33),
+(1, 34),
 (2, 6),
 (2, 7),
 (2, 8),
@@ -130,73 +128,55 @@ INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
 (5, 6),
 (5, 7),
 (5, 8),
-(6, 22),
-(7, 32),
-(7, 43),
-(7, 44),
+(6, 34),
+(7, 13),
+(7, 14),
+(7, 26),
 (8, 6),
 (8, 7),
 (9, 6),
 (9, 7),
-(9, 28),
-(10, 28),
-(10, 30),
-(11, 28),
-(11, 30),
 (12, 27),
-(13, 26),
-(13, 28),
-(14, 26),
-(14, 30),
-(15, 28),
-(15, 30),
-(16, 26),
-(16, 30),
-(17, 23),
-(17, 26),
-(18, 26),
-(18, 28),
-(19, 28),
-(19, 30),
-(20, 26),
-(20, 28),
-(21, 26),
-(21, 28),
-(21, 30),
+(13, 32),
+(14, 32),
+(16, 32),
+(17, 32),
+(17, 35),
+(18, 32),
+(20, 32),
+(21, 32),
 (22, 1),
 (22, 2),
 (23, 3),
 (23, 4),
 (24, 1),
 (24, 4),
-(24, 21),
+(24, 33),
 (25, 1),
-(25, 21),
-(25, 42),
+(25, 12),
+(25, 33),
 (26, 4),
-(26, 42),
-(26, 46),
+(26, 12),
+(26, 27),
 (27, 8),
 (27, 28),
 (27, 35),
-(27, 47),
 (28, 33),
 (28, 34),
-(29, 28),
-(29, 29),
-(30, 28),
-(30, 29),
-(30, 30),
-(31, 28),
-(31, 30),
+(30, 8),
+(30, 17),
+(31, 8),
+(31, 17),
 (32, 8),
-(32, 29),
-(33, 28),
-(33, 29),
-(34, 29),
-(35, 29),
-(36, 29),
-(37, 29);
+(32, 17),
+(33, 8),
+(33, 17),
+(34, 8),
+(34, 17),
+(35, 8),
+(35, 17),
+(36, 34),
+(37, 8);
 
 -- --------------------------------------------------------
 
