@@ -26,20 +26,20 @@
 <body>
 	
 <div class="wrapper">    
-	<div class="container" id="main">
         
         <div id="header"></div><!-- end navbar -->
         
         <div class="navbar navbar-static-top" id="whoWeAreNav">
                 <div class="container">
                     <button class="navbar-toggle" data-target="#nav-list-2" data-toggle="collapse" type="button">
-                         <span class="icon-bar"></span>
-                         <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
               
                 
                     <div class="nav-collapse collapse navbar-responsive-collapse" id="nav-list-2">
-			         <ul class="nav nav-tabs nav-justified">
+			         <ul class="nav navbar-nav">
                         <li><a href="who-we-are-innovation.html">INNOVATIONS</a></li>
                          <li class="active"><a>TESTIMONIALS</a></li>
                         <li><a href="who-we-are-projects.html">PROJECTS</a></li>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+    <div class="container" id="main">
     
     <div class="container" id="testimonials">
          <div class="row text-center">
@@ -102,6 +102,7 @@
                 <div class="col-sm-1 feature"></div>
         </div>
     </div>
+    </div>
         
     <div class="push"></div>
     </div>
@@ -119,6 +120,13 @@
     <!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>S
 	
+    <!-- Custom JS -->
+	<script> 
+        $(function(){
+            $("#header").load("header.html"); 
+            $("#footer").load("footer.html"); 
+        });
+    </script>
 	
 	</body>
 </html>
