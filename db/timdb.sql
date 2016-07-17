@@ -29,8 +29,6 @@ USE timdb;
 -- Structure of table `assistance`
 --
 
-CREATE DATABASE timdb;
-USE timdb;
 
 CREATE TABLE `assistance` (
   `idAssistance` int(11) NOT NULL,

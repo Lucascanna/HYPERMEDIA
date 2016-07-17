@@ -34,7 +34,7 @@ $("document").ready(
             if(category==5)
                 infoName=document.createTextNode("Promotions");
             else
-                infoName=document.createTextNode(devices[0].namecategory);
+                infoName=document.createTextNode(devices[0].nameCategory);
             info.appendChild(infoName);
             
             for(i=0;i<devices.length;i++) {
