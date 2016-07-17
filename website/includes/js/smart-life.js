@@ -7,8 +7,8 @@ $("document").ready(
             method: "POST", 
             crossDomain: true, 
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile 
-            data: {query: "SELECT * FROM smartlife, categoriesmartlife "+
-                "WHERE categoriesmartlife.idcategoria=smartlife.idcategoria AND smartlife.idsmartlife = '"+ idSmartlife+ "'"},
+            data: {query: "SELECT * FROM smartlife, smartlifecategories "+
+                "WHERE smartlifecategories.idCategory=smartlife.idCategory AND smartlife.idSmartlife = '"+ idSmartlife+ "'"},
             
             success: function(response) { 
                 
@@ -17,34 +17,34 @@ $("document").ready(
                 
                 //setting orientation info
                 var categoryInfo=document.getElementById("category-info");
-                var urlCategoryInfo="smart-life-by-category.html?idcategory=" +smartlife[0].idcategoria;
+                var urlCategoryInfo="smart-life-by-category.html?idcategory=" +smartlife[0].idCategory;
                 var categoryInfoLink=document.createElement("a");
                 categoryInfoLink.setAttribute("href",urlCategoryInfo);
-                var categoryInfoName=document.createTextNode(smartlife[0].nomecategoria);
+                var categoryInfoName=document.createTextNode(smartlife[0].nameCategory);
                 categoryInfoLink.appendChild(categoryInfoName);
                 categoryInfo.appendChild(categoryInfoLink);
                 var smartlifeInfo=document.getElementById("smartlife-info");
-                var smartlifeInfoName=document.createTextNode(smartlife[0].nomesmartlife);
+                var smartlifeInfoName=document.createTextNode(smartlife[0].nameSmartlife);
                 smartlifeInfo.appendChild(smartlifeInfoName);
                 
                 //setting the faq link
                 var faqLink=document.getElementById("faq-link");
-                var faqurl="smart-life-faq.html?idsmartlife="+smartlife[0].idsmartlife;
+                var faqurl="smart-life-faq.html?idsmartlife="+smartlife[0].idSmartlife;
                 faqLink.setAttribute("href", faqurl);
                 
                 //setting main image of the page
                 var img=document.getElementById("big-image");
-                img.setAttribute("src","images/big-"+smartlife[0].fotosmartlife);
+                img.setAttribute("src","images/big-"+smartlife[0].photoSmartlife);
                 
                 //setting description and activation text
                 var headerDescription=document.getElementById("header-description");
-                var text=document.createTextNode(smartlife[0].nomesmartlife);
+                var text=document.createTextNode(smartlife[0].nameSmartlife);
                 headerDescription.appendChild(text);
                 var textDescription=document.getElementById("text-description");
-                text=document.createTextNode(smartlife[0].descrizionelongsmartlife);
+                text=document.createTextNode(smartlife[0].descriptionLongSmartlife);
                 textDescription.appendChild(text);
                 var textActivation=document.getElementById("text-activation");
-                text=document.createTextNode(smartlife[0].regoleattivazionesmartlife);
+                text=document.createTextNode(smartlife[0].activationSmartlife);
                 textActivation.appendChild(text);
                 
                 
@@ -61,62 +61,37 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query: "SELECT * FROM prodotti, smartlife, prodottosmartlife " +
-               "WHERE smartlife.idsmartlife = '"+ idSmartlife +"' AND prodotti.idprodotto = prodottosmartlife.idprodotto AND smartlife.idsmartlife = prodottosmartlife.idsmartlife"},
+        data: {query: "SELECT * FROM products, smartlife, productsmartlife " +
+               "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND products.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
         
 		success: function (response) {
-			var availableDevices = JSON.parse(response);
+			var devices = JSON.parse(response);
             
             var availableDevicesContainer = document.getElementById("available-devices");
             var count=0;
             var row;
             
-			for (i = 0; i < availableDevices.length; i++) {
+			for (i = 0; i < devices.length; i++) {
                 //creating buttons for available smart life services
-                if(count%4==0){
-                    row=document.createElement("div");
-                    row.setAttribute("class","row");
-                    availableDevicesContainer.appendChild(row);
-                    var coloumn=document.createElement("div");
-                    coloumn.setAttribute("class","col-sm-3");
-                    row.appendChild(coloumn);
-                    var deviceButton = document.createElement("a");
-                    deviceButton.setAttribute("id","btn-related-groups");
-                    var nameText = document.createTextNode(availableDevices[i].nomeprodotto);
-                    deviceButton.appendChild(nameText);
-                    var urlDevice = "device.html?iddevice=" + availableDevices[i].idprodotto;
-                    deviceButton.setAttribute("href", urlDevice);
-                    deviceButton.setAttribute("class", "btn btn-primary btn-block btn-small");
-                    coloumn.appendChild(deviceButton);
-                    count++;
-                }
-                else{
-                    var coloumn=document.createElement("div");
-                    coloumn.setAttribute("class","col-sm-3");
-                    row.appendChild(coloumn);
-                    var deviceButton = document.createElement("a");
-                    deviceButton.setAttribute("id","btn-related-groups");
-                    var nameText = document.createTextNode(availableDevices[i].nomeprodotto);
-                    deviceButton.appendChild(nameText);
-                    var urlDevice = "device.html?iddevice=" + availableDevices[i].idprodotto;
-                    deviceButton.setAttribute("href", urlDevice);
-                    deviceButton.setAttribute("class", "btn btn-primary btn-block btn-small");
-                    coloumn.appendChild(deviceButton);
-                    count++;
-                }
+                var deviceButton = document.createElement("a");
+                var nameText = document.createTextNode(devices[i].nameProduct);
+				deviceButton.appendChild(nameText);
+                var urlDevice = "device.html?iddevice=" + devices[i].idProduct;
+                deviceButton.setAttribute("href", urlDevice);
+                deviceButton.setAttribute("class", "btn btn-small btn-primary");
+                availableDevicesContainer.appendChild(deviceButton);   
                 
                 //creating elements for dropdown menu
-                var dropdown=document.getElementById("small-menu");
+                var dropdown=document.getElementById("small-devices-menu");
                 var deviceLink=document.createElement("a");
                 var deviceItem=document.createElement("li");
-                deviceLink.setAttribute("href", "device.html?iddevice=" + availableDevices[i].idprodotto);
-                var deviceName=document.createTextNode(availableDevices[i].nomeprodotto);
+                deviceLink.setAttribute("href", "device.html?iddevice=" + devices[i].idProduct);
+                var deviceName=document.createTextNode(devices[i].nameProduct);
                 deviceLink.appendChild(deviceName);
                 deviceItem.appendChild(deviceLink);
                 dropdown.appendChild(deviceItem);
-                
-                
-			}
+            }
+
             
 		},
 		error: function (request, error) {

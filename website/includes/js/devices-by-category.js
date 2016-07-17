@@ -6,14 +6,14 @@ $("document").ready(
     var category = location.search.split('idcategory=')[1];
     var queryString;
     if(category == 5){
-        queryString =   " SELECT * FROM prodotti "+
-                        "WHERE prodotti.promotionprodotto = 1 " +
-                        "ORDER BY prodotti.idprodotto ASC " ;  
+        queryString =   " SELECT * FROM products "+
+                        "WHERE products.promotionProduct = 1 " +
+                        "ORDER BY products.idProduct ASC " ;  
     }
     else{
-        queryString =   " SELECT DISTINCT * FROM prodotti, categorieprodotti "+
-                        "WHERE prodotti.idcategoria=categorieprodotti.idcategoria AND prodotti.idcategoria = '"+ category + "'"+
-                        "ORDER BY prodotti.idprodotto ASC  ";
+        queryString =   " SELECT DISTINCT * FROM products, productscategories "+
+                        "WHERE products.idCategory=productscategories.idCategory AND products.idCategory = '"+ category + "'"+
+                        "ORDER BY products.idProduct ASC  ";
     }
     
     $.ajax({
@@ -34,19 +34,19 @@ $("document").ready(
             if(category==5)
                 infoName=document.createTextNode("Promotions");
             else
-                infoName=document.createTextNode(devices[0].nomecategoria);
+                infoName=document.createTextNode(devices[0].namecategory);
             info.appendChild(infoName);
             
             for(i=0;i<devices.length;i++) {
                                     
                 //creating images dinamically
                 var deviceImage = document.createElement("img"); 
-                var urlImage = "images/" + devices[i].fotoprodotto;
+                var urlImage = "images/" + devices[i].photoProduct;
                 deviceImage.setAttribute('src', urlImage);
                 deviceImage.setAttribute("class", "img-responsive");
         
                 //setting the link to the image
-                var urlProdotto = "device.html?iddevice=" + devices[i].idprodotto;
+                var urlProdotto = "device.html?iddevice=" + devices[i].idProduct;
                 var deviceLink = document.createElement("a");
                 deviceLink.setAttribute("href", urlProdotto);
                 deviceLink.appendChild(deviceImage);
@@ -54,13 +54,13 @@ $("document").ready(
                 //creating name dinamically
                 var deviceName = document.createElement("h4");
                 deviceName.setAttribute("class", "text-center");
-                var tempName = document.createTextNode(devices[i].nomeprodotto);
+                var tempName = document.createTextNode(devices[i].nameProduct);
                 deviceName.appendChild(tempName);
                     
                 //creating price dinamically
                 var devicePrice = document.createElement("p");
                 devicePrice.setAttribute("class", "text-center");
-                var priceText = document.createTextNode("$"+devices[i].prezzoprodotto);
+                var priceText = document.createTextNode("$"+devices[i].priceProduct);
                 devicePrice.appendChild(priceText);
                     
                 //creating a panel for the device

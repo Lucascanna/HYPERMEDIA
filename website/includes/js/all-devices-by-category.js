@@ -7,9 +7,9 @@ $("document").ready(
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
             
             data: { query:  "SELECT * " +
-                            "FROM categorieprodotti, prodotti " +
-                            "WHERE categorieprodotti.idcategoria = prodotti.idcategoria " +
-                            "ORDER BY prodotti.idprodotto ASC " },
+                            "FROM productscategories, products " +
+                            "WHERE productscategories.idCategory = products.idCategory " +
+                            "ORDER BY products.idProduct ASC " },
             
             success: function(response) { 
                 var devices=JSON.parse(response);
@@ -24,7 +24,7 @@ $("document").ready(
                 
                 //getting all categories
                 for(i=0;i<devices.length;i++){
-                    var obj={idcategory:devices[i].idcategoria, namecategory:devices[i].nomecategoria};
+                    var obj={idcategory:devices[i].idCategory, namecategory:devices[i].nameCategory};
                     categories[i]=obj;
                 }
                     
@@ -40,7 +40,7 @@ $("document").ready(
                 for(i=0;i<devices.length;i++){
                     if(count==3)
                         break;
-                    if(devices[i].promotionprodotto==1){
+                    if(devices[i].promotionProduct==1){
                         promotionDevices[count]=devices[i];
                         count++;
                     }
@@ -80,11 +80,11 @@ $("document").ready(
                     for(j=0; j<devices.length;j++){
                         if(count==3)
                             break;
-                        if(devices[j].nomecategoria==uniqueCategories[i].namecategory){
+                        if(devices[j].nameCategory==uniqueCategories[i].namecategory){
                             var img=document.createElement("img");
                             img.setAttribute("class","img-responsive");
                             img.setAttribute("id", "img-categories");
-                            var urlimg="images/"+devices[j].fotoprodotto;
+                            var urlimg="images/"+devices[j].photoProduct;
                             img.setAttribute("src",urlimg);
                             var coloumnImage=document.createElement("div");
                             coloumnImage.setAttribute("class", "col-sm-4 text-center");
@@ -141,10 +141,10 @@ $("document").ready(
                     var img=document.createElement("img");
                     img.setAttribute("class","img-responsive");
                     img.setAttribute("id", "img-categories");
-                    var urlimg="images/"+promotionDevices[i].fotoprodotto;
+                    var urlimg="images/"+promotionDevices[i].photoProduct;
                     img.setAttribute("src",urlimg);
                     var coloumnImage=document.createElement("div");
-                    coloumnImage.setAttribute("class", "col-sm-4");
+                    coloumnImage.setAttribute("class", "col-sm-4 text-center");
                     rowImages.appendChild(coloumnImage);
                     coloumnImage.appendChild(img);
                 }

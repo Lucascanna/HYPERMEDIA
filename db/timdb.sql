@@ -20,30 +20,34 @@ SET time_zone = "+00:00";
 -- Database: `timdb`
 --
 
+CREATE DATABASE timdb;
+USE timdb;
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `assistenza`
+-- Structure of table `assistance`
 --
 
 CREATE DATABASE timdb;
 USE timdb;
 
-CREATE TABLE `assistenza` (
-  `idassistenza` int(11) NOT NULL,
-  `nomeassistenza` varchar(40) COLLATE utf8_bin NOT NULL,
-  `descrizioneassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `domandeassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `risposteassistenza` longtext COLLATE utf8_bin NOT NULL,
-  `idcategoria` int(11) NOT NULL,
-  `highlightsboolean` smallint(1) NOT NULL DEFAULT '0'
+CREATE TABLE `assistance` (
+  `idAssistance` int(11) NOT NULL,
+  `nameAssistance` varchar(40) COLLATE utf8_bin NOT NULL,
+  `descriptionAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `questionsAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `answersAssistance` longtext COLLATE utf8_bin NOT NULL,
+  `idCategory` int(11) NOT NULL,
+  `highlightsBoolean` smallint(1) NOT NULL DEFAULT '0'
+    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `assistenza`
+-- Dump of data for table `assistance`
 --
 
-INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassistenza`, `domandeassistenza`, `risposteassistenza`, `idcategoria`, `highlightsboolean`) VALUES
+INSERT INTO `assistance` (`idAssistance`, `nameAssistance`, `descriptionAssistance`, `questionsAssistance`, `answersAssistance`, `idCategory`, `highlightsBoolean`) VALUES
 (1, 'Attivazione linea di casa', 'Richiedere l’attivazione di una linea telefonica di casa è molto semplice, puoi: richiederla online, chiamare il Servizio Clienti linea fissa 187, o recarti presso un Negozio TIM.', 'Q: Quali documenti sono necessari?:Q Q: Quali sono le diverse tipologie di linea telefonica di casa?:Q', 'A: Dovrai fornire in visione i seguenti documenti:\r\ndocumento di identità del titolare linea codice fiscale del titolare linea.:A A: Linea telefonica principale, linea telefonica aggiuntiva, lisnea ISDN :A', 1, 1),
 (2, 'Trasloco', 'Il trasloco è un operazione che ti consente di spostare la tua linea telefonica presso una nuova abitazione, nella stessa città o in una città diversa. Puoi gestirla direttamente online basta registrarsi all’Area Clienti.', 'Q: Cosa è il trasloco di una linea telefonica?:Q Q: Posso mantenere il mio numero telefonico?:Q', 'A: Il trasloco ti permette di trasferire la tua linea telefonica presso una nuova abitazione, nella stessa città o in una città diversa.:A A: Se la nuova abitazione si trova nello stesso distretto telefonico di quella di origine, salvo problemi tecnici, sarà possibile mantenere il vecchio numero telefonico. Fino al momento dell’attivazione della linea nella tua nuova abitazione potrai continuare ad utilizzare la linea telefonica nella tua vecchia abitazione.:A', 1, 0),
 (3, 'Subentro', 'Il subentro ti permette di modificare l intestazione di una linea telefonica attiva nella stessa sede dove si trova l impianto garantendo così la continuità nell emissione delle fatture', 'Q: Subentro tra coniugi separati:Q Q: Riepilogo Costi:Q', 'A: Questa tipologia di subentro permette di variare gratuitamente l intestazione del contratto telefonico a favore del coniuge assegnatario della residenza a seguito di separazione, senza interruzione, nell utilizzo della linea telefonica.:A A: Per qualsiasi tipo di subentro, il nuovo intestatario deve corrispondere, a titolo di "Anticipo Conversazioni" un importo di 8 €.:A', 1, 0),
@@ -86,7 +90,7 @@ INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassisten
 (41, 'Parental Control', 'La funzionalità Parental Control permette, se opportunamente attivata, di filtrare i contenuti non adatti alla fruizione da parte dei più piccoli o di persone particolarmente sensibili a immagini o tematiche ritenute inadatte.\r\n\r\nIl Parental Control è preimpostato sul livello medio in modo da impedire la visione dei contenuti consigliati ad un pubblico adulto. In fase di registrazione a TIMvision ti verrà richiesto di configurare un codice numerico di 4 cifre, cosiddetto PIN Parental Control. Questo PIN ti servirà per modificare successivamente il livello di Parental Control.\r\n', 'Q: Come posso attivare il Parental Control da TV ( con decoder)?:Q Q: Come posso attivare il Parental Control da tablet/smartpone o sito timvision.it ?:Q Q: Come posso recuperare il PIN Parental Control?:Q', 'A: Per attivare/modificare il livello del Parental Control entra in Profilo/I Miei Dati/Parental Control. Per modificarlo ti sarà richiesto di inserire il PIN Parental Control da te scelto nella fase iniziale di registrazione al servizio.:A A: Per attivare il Parental Control, registrati al servizio. Entra nel mio profilo e dalla sezione IMPOSTAZIONI/Parental Control. Da questa sezione potrai modificare il livello di Parental control inserendo il PIN definito in fase di registrazione.:A A: Puoi recuperare il PIN necessario per modificare il livello di parental control contattando il Servizio Clienti 187.:A ', 4, 1),
 (42, 'Gli elenchi telefonici a casa tua', '\r\nServizio annuale di consegna degli elenchi telefonici\r\n\r\nIl servizio di consegna degli elenchi telefonici consente di ricevere ogni anno, comodamente presso l’indirizzo di ubicazione del tuo impianto telefonico, gli elenchi degli abbonati di linea fissa TIM e degli altri gestori telefonici, aggiornati all’anno in corso. Il servizio NON comprende il ritiro degli Elenchi telefonici relativi alle precedenti edizioni.\r\n\r\nIl servizio di consegna elenchi telefonici è a pagamento al costo annuale di 2,50 € (IVA inclusa). Il costo del servizio è addebitato sulla Fattura TIM della linea di casa; non è dovuto alcun importo agli addetti incaricati della distribuzione.\r\n\r\nTi ricordiamo che è possibile rinunciare gratuitamente in qualsiasi momento al servizio di consegna degli elenchi telefonici, contattando telefonicamente il Servizio Clienti linea fissa 187 o inviando una comunicazione scritta all’indirizzo Telecom Italia  indicato sulla Fattura o al numero verde fax 800000187 del Servizio Clienti; in tal caso TIM provvederà a non addebitare più il relativo importo.\r\nPer ulteriori informazioni sul servizio o per richiederlo in caso di precedente rinuncia, ti invitiamo a contattare il Servizio Clienti 187, a disposizione 7 giorni su 7, dalle 7.00 alle 22.30.', '', '', 1, 0),
 (43, 'Verifica la copertura', 'Accedi direttamente all''area "Verifica Copertura” e digita il comune per il quale ti interessa ricevere informazioni di copertura; oppure selezionalo dalla mappa e riceverai indicazioni sulla presenza di segnale:\r\n\r\n2G (GSM,GPRS e EDGE) (per effettuare e ricevere telefonate/SMS/MMS e collegarti a Internet)\r\n3G (UMTS e HSPA)\r\n4G (LTE)\r\n4GPLUS (LTE Advanced)\r\nTieni sempre presente che l’indicazione fornita dal sito è riferita all’intero comune scelto e non alle singole strade perciò potrebbe accadere che anche in presenza di indicazione copertura sul territorio, alcune ristrette zone non siano completamente coperte dal segnale TIM; pertanto è sempre consigliabile effettuare una verifica sul campo, anche solo con un normale telefonino e una scheda TIM. Ricorda inoltre che, ove presente, i servizi e la copertura sono garantiti solo in outdoor, cioè all’esterno dei palazzi, e non all’interno delle mura domestiche o degli ambienti di lavoro.\r\n\r\nSe hai verificato che la tua zona è coperta dal servizio TIM ma il segnale rilevato dal telefonino è scarso o assente, ti consigliamo di:\r\n\r\nspegnere e riaccendere il telefonino e riprovare; questa semplice manovra può portare ad una soluzione immediata del problema.\r\nSe questo non risolve:\r\n\r\nEffettuare una prova incrociata inserendo la SIM su un altro cellulare per verificare se funziona correttamente ed escludere così la possibilità che si sia smagnetizzata. Contestualmente provare ad inserire un’altra SIM sul telefonino da cui si è riscontrato il problema al fine di accertare che lo stesso funzioni regolarmente;\r\nVerificare infine se altri clienti TIM della tua zona hanno riscontrato le stesse difficoltà, nel qual caso si evince che si tratta di un problema non legato solo alla tua linea telefonica.\r\nNel caso in cui il problema di segnale si manifesti da meno di 24 ore, può trattarsi di un disservizio momentaneo e ti consigliamo di attendere.\r\n\r\n', '', '', 1, 0);
-INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassistenza`, `domandeassistenza`, `risposteassistenza`, `idcategoria`, `highlightsboolean`) VALUES
+INSERT INTO `assistance` (`idAssistance`, `nameAssistance`, `descriptionAssistance`, `questionsAssistance`, `answersAssistance`, `idCategory`, `highlightsBoolean`) VALUES
 (44, 'Gli MMS', 'Il servizio MMS (Multimedia Message Service) permette di inviare:\r\n\r\nTesto con più di 1000 caratteri.\r\nFoto, immagini e filmati.\r\nSuonerie e file audio.\r\nI telefonini brandizzati TIM hanno già al loro interno le impostazioni corrette per utilizzare il servizio. Se necessario, per configurare gli MMS o se vuoi semplicemente verificarne le impostazioni, puoi consultare i manuali di configurazione disponibili all’interno della sezione Assistenza del sito TIM.it, alla voce “Configura online”, che ti guideranno nell’impostare i paramentri necessari. \r\n\r\n \r\n\r\nN.B. Se non conosci il modello del tuo telefonino puoi accedere direttamente alla sezione MyTIM Mobile.\r\nDopo esserti autenticato con la tua username e password, avrai accesso alla tua area personale ed il tuo modello di telefonino sarà automaticamente riconosciuto. Se non hai un telefonino compatibile con la tecnologia MMS o se il tuo telefonino non è abilitato all’invio e alla ricezione di MMS, puoi visualizzare il Messaggio Multimediale ricevuto sulla tua linea, accedendo:\r\n\r\nSe sei già registrato alla sezione Mail, inserendo i tuoi dati (nome utente e password).\r\nSe non sei registrato, all’indirizzo WEB che trovi nell’SMS di notifica che riceverai, contenente anche la password momentanea per la visualizzazione.\r\nPer i clienti ricaricabili: è necessario avere sufficiente credito residuo per effettuare questo tipo di traffico telefonico. L’invio e la ricezione di MMS avviene tramite connessione dati, e questa è abilitata solo a fronte della presenza di credito residuo sull''utenza. In ogni caso la ricezione degli MMS sul territorio nazionale non comporta alcun addebito.\r\n\r\nPer i clienti con abbonamento: per poter inviare e ricevere MMS, la linea deve essere abilitata alla connessione dati; alcune linee con Abbonamento possono essere inibite a tale traffico.\r\nInviare e ricevere MMS dall''estero è facile come quando sei in Italia, scopri gli Operatori con cui TIM ha accordi.\r\n\r\n \r\n\r\nInviare e ricevere MMS\r\n\r\nPer utilizzare il servizio MMS devono verificarsi le seguenti condizioni:\r\n\r\nTipologia e dimensione del messaggio multimediale consentita dal modello di telefonino.\r\nSIM da 64K o superiore.\r\nPresenza del segnale di rete.\r\nTraffico acquistato residuo (se sei cliente ricaricabile).\r\nAbilitazione su rete TIM (se sei cliente con abbonamento).\r\nCorretta configurazione dei parametri TIM per la ricezione/invio degli MMS\r\nSpazio sufficiente nella memoria del telefonino.\r\nSe non ricevi alcuni MMS devi assicurarti che il tuo telefonino risulti compatibile con il contenuto multimediale e che abbia sufficiente memoria libera. Nei casi in cui non è stato possibile ricevere l’MMS, potrai visualizzare il contenuto del messaggio tramite il servizio Mail del nostro sito.\r\n\r\nIl costo per l''invio di un MMS dall''Italia verso un numero nazionale dipende dal piano tariffario attivo sulla tua linea. Ricorda che puoi conoscere tutti i dettagli del tuo piano tariffario entrando nella sezione MyTIM Mobile cliccando sul nome della tua "Tariffa base".\r\n\r\nLa ricezione degli MMS su rete dati in territorio nazionale è gratuita.\r\nConoscere l''esito del tuo MMS, con la data, l''ora di consegna e di lettura avvenuta, è gratuito!\r\n\r\nAll’estero la tariffazione degli MMS inviati e ricevuti varia a seconda del Paese Estero che ti ospita.\r\nGli MMS inviati dall''Italia verso direttrici internazionali sono tariffati secondo i normali costi nazionali.', '', '', 1, 0),
 (45, 'Recupero password MyTim', 'Se hai dimenticato o smarrito la password di accesso alla sezione MyTIM Mobile, (che è la stessa che utilizzavi per accedere in Area Clienti 119),  clicca su Recupera Password; riceverai tramite SMS una password temporanea che dovrai digitare.\r\n\r\nAccertati di avere accanto a te il telefonino\r\n\r\nRECUPERA PASSWORD\r\n', '', '', 1, 0),
 (46, 'SEPA (Single Euro Payments Area)', 'TIM ha informato la propria clientela, attraverso uno specifico messaggio informativo in fattura, in merito all’applicazione del Regolamento UE 260/2012 che prevede, a partire dal 1° febbraio 2014, la sostituzione obbligatoria del servizio di addebito diretto nazionale con l’adozione di nuovi schemi di pagamento europei (SEPA).\r\n\r\nLe autorizzazioni all’addebito in conto (c.d. domiciliazioni RID bancarie e postali) per l’incasso di addebiti diretti periodici secondo uno schema nazionale, rilasciate al beneficiario del pagamento prima del 1° febbraio 2014, rimangono valide anche dopo tale data.\r\n\r\nTIM, in qualità di beneficiario del pagamento, utilizzerà quindi nel corso dei prossimi mesi i nuovi strumenti di addebito diretto SEPA, senza soluzione di continuità rispetto alle attuali domiciliazioni RID in essere con la propria clientela e mantenendo invariate le attuali modalità di pagamento.\r\n\r\nQualora gli addebiti dell’utenza telefonica fossero domiciliati su un conto corrente intestato a persona diversa dal titolare del contratto di abbonamento, TIM inviterà il titolare del contratto di abbonamento ad inoltrare comunicazione sulla prossima migrazione alla SEPA anche all’intestatario del conto corrente sul quale la domiciliazione è stata attivata.\r\n\r\n\r\nCos''è la SEPA?\r\nPer SEPA (Single Euro Payments Area o Area Unica dei Pagamenti in Euro) s’intende un’iniziativa dell’Unione Europea per l’integrazione nell’area dei sistemi di pagamento. Dopo l’introduzione delle monete e delle banconote in Euro avvenuta nel 2002, le autorità Europee, in particolare la Commissione Europea e la Banca Centrale Europea, in accordo con i Governi dei Paesi dell’Unione, si sono focalizzate sull’integrazione del mercato dei pagamenti in Euro.\r\n\r\nL’armonizzazione e l’integrazione della moltitudine degli schemi di bonifico ed addebito diretto esistenti nei diversi Paesi dell’Unione Europea e la loro sostituzione con schemi di pagamenti comuni ed utilizzabili in tutta Europa rappresenta un passo essenziale per il completamento dell’introduzione dell’Euro quale divisa di regolamento monetario.', 'Q: Quali sono i benefici attesi dalla realizzazione della SEPA?:Q Q: Quando si realizzerà la SEPA ?:Q Q: Quali sono gli strumenti di pagamento della SEPA?:Q', 'A: La realizzazione della SEPA consentirà agli utilizzatori dei servizi di pagamento, consumatori, imprese e Pubbliche Amministrazioni, di effettuare e ricevere pagamenti in Euro da e verso 33 Paesi (28 Paesi dell’Unione Europea più Islanda, Norvegia, Liechtenstein, Svizzera e Monaco) con la stessa facilità con la quali gli stessi sono ora eseguibili a livello nazionale.\r\n\r\nL’adozione di schemi di pagamento e standard comuni produrrà una riduzione dei costi legati al trasferimento monetario, faciliterà la competizione tra i fornitori di servizi di pagamento e stimolerà la realizzazione di servizi di pagamento innovativi.\r\n\r\nPer gli utilizzatori delle carte, i vantaggi saranno legati all''adozione, in sostituzione delle vecchie carte a banda magnetica, di nuove carte dotate di tecnologia chip e PIN (codice segreto) che garantiscono maggiore sicurezza per gli utenti ed all’uniformità nell''uso fuori dai confini nazionali: sarà possibile utilizzare la carta in tutta la SEPA e non solo nei singoli Paesi mantenendo le medesime condizioni e la stessa facilità d’uso.:A A: La realizzazione della SEPA ha tempistiche e modalità differenti per i diversi strumenti di pagamento: bonifici, addebiti diretti e carte di credito e di debito.\r\n\r\nPer quanto riguarda bonifici e addebiti diretti, nel 2012 il Legislatore Europeo ha emanato un Regolamento che stabilisce il 1° febbraio 2014 come termine ultimo entro il quale dovrà avvenire la sostituzione obbligatoria dei servizi di addebito diretto e di bonifico nazionali e l’adozione dei nuovi schemi di pagamento Europei aventi le caratteristiche tecniche definite dal Regolamento stesso.\r\n\r\nI pagamenti e i prelievi effettuati con carte di credito e di debito nei Paesi della SEPA sono invece regolati da una serie di principi generali, il cd. SEPA Cards Framework, che rappresentano il quadro di riferimento per l''evoluzione dei circuiti nazionali e internazionali verso la SEPA, in un contesto di autoregolamentazione del sistema bancario e finanziario.:A A: La realizzazione della SEPA ha tempistiche e modalità differenti per i diversi strumenti di pagamento: bonifici, addebiti diretti e carte di credito e di debito.\r\n\r\nPer quanto riguarda bonifici e addebiti diretti, nel 2012 il Legislatore Europeo ha emanato un Regolamento che stabilisce il 1° febbraio 2014 come termine ultimo entro il quale dovrà avvenire la sostituzione obbligatoria dei servizi di addebito diretto e di bonifico nazionali e l’adozione dei nuovi schemi di pagamento Europei aventi le caratteristiche tecniche definite dal Regolamento stesso.\r\n\r\nI pagamenti e i prelievi effettuati con carte di credito e di debito nei Paesi della SEPA sono invece regolati da una serie di principi generali, il cd. SEPA Cards Framework, che rappresentano il quadro di riferimento per l''evoluzione dei circuiti nazionali e internazionali verso la SEPA, in un contesto di autoregolamentazione del sistema bancario e finanziario.:A ', 3, 1),
@@ -98,21 +102,21 @@ INSERT INTO `assistenza` (`idassistenza`, `nomeassistenza`, `descrizioneassisten
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `categorieassistenza`
+-- Structure of table `categoriesAssistance`
 --
 
-CREATE TABLE `categorieassistenza` (
-  `idcategoria` int(11) NOT NULL,
-  `nomecategoria` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `fotocategoria` varchar(30) COLLATE utf8_bin NOT NULL,
-  `descrizionecategoria` mediumtext COLLATE utf8_bin NOT NULL
+CREATE TABLE `categoriesAssistance` (
+  `idCategory` int(11) NOT NULL,
+  `nameCategory` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `photoCategory` varchar(30) COLLATE utf8_bin NOT NULL,
+  `descriptionCategory` mediumtext COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `categorieassistenza`
+-- Dump of data for tabel `categoriesAssistance`
 --
 
-INSERT INTO `categorieassistenza` (`idcategoria`, `nomecategoria`, `fotocategoria`, `descrizionecategoria`) VALUES
+INSERT INTO `categoriesAssistance` (`idCategory`, `nameCategory`, `photoCategory`, `descriptionCategory`) VALUES
 (1, 'Gestione Linea e Servizi', 'gestionelinea.png', 'Tutto per la gestione di linea fissa e mobile per te.\n'),
 (2, 'Supporto Tecnico', 'supportotecnico.png', 'Problemi di configurazione e installazione? non più!\n'),
 (3, 'Controllo Costi', 'controllocosti.png', 'Tutto ciò che devi sapere per monitorare i tuoi dati.\n'),
@@ -122,7 +126,7 @@ INSERT INTO `categorieassistenza` (`idcategoria`, `nomecategoria`, `fotocategori
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `productassistance`
+-- Structure of table `productassistance`
 --
 
 CREATE TABLE `productassistance` (
@@ -131,7 +135,7 @@ CREATE TABLE `productassistance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `productassistance`
+-- Dump of data for table `productAssistance`
 --
 
 INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
@@ -220,7 +224,7 @@ INSERT INTO `productassistance` (`idProduct`, `idAssistance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `products`
+-- Structure of table`products`
 --
 
 CREATE TABLE `products` (
@@ -246,7 +250,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dump dei dati per la tabella `products`
+-- Dump of data for table `products`
 --
 
 INSERT INTO `products` (`idProduct`, `nameProduct`, `photoProduct`, `priceProduct`, `descriptionProduct`, `technology`, `connectivity`, `gps`, `display`, `processor`, `memory`, `camera`, `sim`, `audio`, `video`, `dimensions`, `weight`, `promotionProduct`, `idCategory`) VALUES
@@ -470,14 +474,14 @@ INSERT INTO `smartlifecategories` (`idCategory`, `nameCategory`) VALUES
 --
 -- Indici per le tabelle `assistenza`
 --
-ALTER TABLE `assistenza`
-  ADD PRIMARY KEY (`idassistenza`);
+ALTER TABLE `assistance`
+  ADD PRIMARY KEY (`idAssistance`);
 
 --
 -- Indici per le tabelle `categorieassistenza`
 --
-ALTER TABLE `categorieassistenza`
-  ADD PRIMARY KEY (`idcategoria`);
+ALTER TABLE `categoriesAssistance`
+  ADD PRIMARY KEY (`idCategory`);
 
 --
 -- Indici per le tabelle `productassistance`
@@ -522,13 +526,13 @@ ALTER TABLE `smartlifecategories`
 --
 -- AUTO_INCREMENT per la tabella `assistenza`
 --
-ALTER TABLE `assistenza`
-  MODIFY `idassistenza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+ALTER TABLE `assistance`
+  MODIFY `idAssistance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT per la tabella `categorieassistenza`
 --
-ALTER TABLE `categorieassistenza`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `categoriesAssistance`
+  MODIFY `idCategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

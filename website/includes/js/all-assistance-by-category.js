@@ -7,8 +7,8 @@ $("document").ready(
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
             
             data: {query:   "SELECT * "+
-                            "FROM categorieassistenza "+
-                            "ORDER BY idcategoria ASC "  },
+                            "FROM categoriesAssistance "+
+                            "ORDER BY idCategory ASC "  },
             
             success: function(response) { 
                 var categories=JSON.parse(response);
@@ -19,7 +19,7 @@ $("document").ready(
                 for(i=0;i<categories.length;i++){
                     
                     //setting links
-                    var urlCategory="assistance-by-category.html?idcategory="+categories[i].idcategoria;
+                    var urlCategory="assistance-by-category.html?idcategory="+categories[i].idCategory;
                     
                     //putting a row for each category
                     var row=document.createElement("div");
@@ -34,20 +34,20 @@ $("document").ready(
                     link.appendChild(coloumnImg);
                     var img=document.createElement("img");
                     img.setAttribute("class", "img-responsive");
-                    img.setAttribute("src", "images/"+categories[i].fotocategoria);
+                    img.setAttribute("src", "images/"+categories[i].photoCategory);
                     img.setAttribute("style", "margin-top: 21px")
                     coloumnImg.appendChild(img);
                     var coloumnText=document.createElement("div");
                     coloumnText.setAttribute("class", "col-sm-9");
                     link.appendChild(coloumnText);
                     var title=document.createElement("h3");
-                    var titleText=document.createTextNode(categories[i].nomecategoria);
+                    var titleText=document.createTextNode(categories[i].nameCategory);
                     var titleBold=document.createElement("b");
                     titleBold.appendChild(titleText);
                     title.appendChild(titleBold);
                     coloumnText.appendChild(title);
                     var description=document.createElement("h4");
-                    var descriptionText=document.createTextNode(categories[i].descrizionecategoria);
+                    var descriptionText=document.createTextNode(categories[i].descriptionCategory);
                     description.appendChild(descriptionText);
                     coloumnText.appendChild(description);
 
