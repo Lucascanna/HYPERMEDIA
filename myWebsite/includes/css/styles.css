@@ -35,9 +35,6 @@ footer{
 /* --------------------------------------
    Who We Are section
    -------------------------------------- */
-#innovation{
-    margin-top: 10px;
-}
 
 #innovation .col-sm-4, .col-sm-8 {
     float:none;
@@ -59,9 +56,8 @@ footer{
 
 #whoWeAreNav{
     margin-top: 50px;
-    background-color: whitesmoke;
+    background-color: white;
 }
-
 
 /* --------------------------------------
    Device

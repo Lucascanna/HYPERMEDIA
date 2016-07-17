@@ -56,7 +56,7 @@
             <div class="row, text-center" id="device-name"></div>
                 <div class="row, text-center" id="device-layout">
                     <div id="device-image"></div>
-                    <button type="button" class="btn btn-small btn-primary" id="buy-button">Buy</button>
+                    <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#BuyModal" id="buy-button">Buy</button>
                 </div>
                 <div class="dropdown visible-sm"> 
                     <button class="btn btn-default dropdown-toggle btn-block" type="button" data-toggle="dropdown" style="margin-top:5%">
@@ -75,6 +75,34 @@
                     </ul>
                 </div>
             </div>
+        
+            <div id="BuyModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="myModalLabel">Fill in the form to buy this product.</h3>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal col-sm-12">
+                      <div class="form-group"><label>Name</label><input class="form-control" placeholder="Your name" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>Surname</label><input class="form-control" placeholder="Your surname" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>Address</label><input class="form-control" placeholder="Your address" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>City</label><input class="form-control" placeholder="Your city" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>Province/State</label><input class="form-control" placeholder="Your province/state" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>Postal code</label><input class="form-control" placeholder="Your postal code" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>Country</label><input class="form-control" placeholder="Your country" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><label>E-Mail</label><input class="form-control email" placeholder="email@you.com (so that we can confirm the payment with more privacy)" data-placement="top" data-trigger="manual" type="text"></div>
+                      <div class="form-group"><button type="submit" class="btn btn-success pull-right" data-dismiss="modal" aria-hidden="true">Confirm</button></div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
             <div class="col-sm-7 feature">
                 <div id="device-infos">
                     <div id="device-description"></div>
