@@ -4,9 +4,19 @@ $("document").ready(
     $( "#assistance" ).empty();
             
     var category = location.search.split('idcategory=')[1];
-    var queryString = "SELECT DISTINCT * FROM assistance, categoriesAssistance " +
+    var queryString;
+        
+    if(category==4){
+        queryString = "SELECT * FROM assistance " +
+                      "WHERE assistance.highlightsBoolean = 1 " +
+                      "ORDER BY assistance.idAssistance ASC  "  ; 
+    }
+        
+    else{
+        queryString = "SELECT DISTINCT * FROM assistance, categoriesAssistance " +
                       "WHERE assistance.idCategory=categoriesAssistance.idCategory AND assistance.idCategory = '"+category+"' " +
                       "ORDER BY assistance.idAssistance ASC"  ;
+    }
     
     $.ajax({
         method: "POST",
@@ -22,7 +32,13 @@ $("document").ready(
             
             //setting orientation info
             var info=document.getElementById("active-info");
-            var infoName=document.createTextNode(assistances[0].nameCategory);
+            var infoName;
+            if(category==4)
+                infoName=document.createTextNode("Highlights");
+            else{
+                infoName=document.createTextNode(assistances[0].nameCategory);
+            }
+            
             info.appendChild(infoName);
             
             for(i=0;i<assistances.length;i++) {
