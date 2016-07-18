@@ -96,7 +96,7 @@ $("document").ready(
                 var smartLifeLink=document.createElement("a");
                 var smartLifeItem=document.createElement("li");
                 smartLifeLink.setAttribute("href", "smart-life.html?idsmartlife=" + smartlife[i].idSmartlife);
-                var smartLifeName=document.createTextNode(smartlife[i].namesmartlife);
+                var smartLifeName=document.createTextNode(smartlife[i].nameSmartlife);
                 smartLifeLink.appendChild(smartLifeName);
                 smartLifeItem.appendChild(smartLifeLink);
                 dropdown1.appendChild(smartLifeItem);
