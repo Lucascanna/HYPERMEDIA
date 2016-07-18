@@ -13,8 +13,8 @@ $("document").ready(
     }
         
     else{
-        queryString = "SELECT DISTINCT * FROM assistance, categoriesAssistance " +
-                      "WHERE assistance.idCategory=categoriesAssistance.idCategory AND assistance.idCategory = '"+category+"' " +
+        queryString = "SELECT DISTINCT * FROM assistance, categoriesassistance " +
+                      "WHERE assistance.idCategory=categoriesassistance.idCategory AND assistance.idCategory = '"+category+"' " +
                       "ORDER BY assistance.idAssistance ASC"  ;
     }
     

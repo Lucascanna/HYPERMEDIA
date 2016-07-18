@@ -7,7 +7,7 @@ $("document").ready(
             url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
             
             data: {query:   "SELECT * "+
-                            "FROM categoriesAssistance "+
+                            "FROM categoriesassistance "+
                             "ORDER BY idCategory ASC "  },
             
             success: function(response) { 

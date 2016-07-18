@@ -8,8 +8,8 @@ $("document").ready(
         crossDomain: true, 
         
         url: "includes/php/query.php",
-        data: {query: "SELECT * FROM assistance, categoriesAssistance " +
-        "WHERE assistance.idCategory=categoriesAssistance.idCategory AND assistance.idAssistance = '"+ idAssistance +"'"},
+        data: {query: "SELECT * FROM assistance, categoriesassistance " +
+        "WHERE assistance.idCategory=categoriesassistance.idCategory AND assistance.idAssistance = '"+ idAssistance +"'"},
      
         success: function(response) {
             var assistance=JSON.parse(response);

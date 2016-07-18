@@ -72,8 +72,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query: "SELECT * FROM products, smartlife, productSmartlife " +
-               "WHERE products.idProduct = '"+ idDevice +"' AND products.idProduct = productSmartlife.idProduct AND smartlife.idSmartlife = productSmartlife.idSmartlife"},
+        data: {query: "SELECT * FROM products, smartlife, productsmartlife " +
+               "WHERE products.idProduct = '"+ idDevice +"' AND products.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
         
 		success: function (response) {
 			var smartlife = JSON.parse(response);
@@ -113,8 +113,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query:   "SELECT * FROM products, assistance, productAssistance " +
-                        "WHERE products.idProduct = '" + idDevice +"' AND products.idProduct = productAssistance.idProduct AND assistance.idAssistance = productAssistance.idAssistance"},
+        data: {query:   "SELECT * FROM products, assistance, productassistance " +
+                        "WHERE products.idProduct = '" + idDevice +"' AND products.idProduct = productassistance.idProduct AND assistance.idAssistance = productassistance.idAssistance"},
         
         success: function (response) {
 			var assistance = JSON.parse(response);
