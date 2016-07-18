@@ -55,8 +55,8 @@ $("document").ready(
 		crossDomain: true,
         
 		url: "includes/php/query.php",
-        data: {query: "SELECT * FROM assistance, products, productAssistance " +
-               "WHERE assistance.idAssistance = '"+ idAssistance +"' AND assistance.idAssistance = productAssistance.idProduct AND products.idProduct = productAssistance.idAssistance"},
+        data: {query: "SELECT * FROM assistance, products, productassistance " +
+               "WHERE assistance.idAssistance = '"+ idAssistance +"' AND assistance.idAssistance = productassistance.idAssistance AND products.idProduct = productassistance.idProduct"},
         
 		success: function (response) {
 			var devices = JSON.parse(response);
@@ -64,6 +64,8 @@ $("document").ready(
             var availableDevicesContainer = document.getElementById("available-devices-panel");
 
 			for (i = 0; i < devices.length; i++) {
+                
+                console.log(devices[i].idProduct);
                 
                 //creating buttons for available devices
                 var deviceButton = document.createElement("a");
