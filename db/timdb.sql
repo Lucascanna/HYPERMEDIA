@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 -- Database: `timdb`
 --
 
-CREATE DATABASE timdb;
-USE timdb;
+
+USE my_pencoscannapiecotorelli;
 
 -- --------------------------------------------------------
 
