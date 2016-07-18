@@ -41,40 +41,43 @@ $("document").ready(
             
             info.appendChild(infoName);
             
-            for(i=0;i<assistances.length;i++) {
-                                    
-                //creating name dinamically
-                var assistanceName = document.createElement("h4");
+            var container=document.getElementById("assistance");
+            
+            for(i=0;i<assistances.length;i++){
+                var urlAssistance = "assistance.html?idassistance=" + assistances[i].idAssistance;
+                
+                var minorCol=document.createElement("div");
+                minorCol.setAttribute("class", "col-sm-2");
+                
+                var mainCol=document.createElement("div");
+                mainCol.setAttribute("class", "col-sm-4");
+                
+                var assistanceName = document.createElement("a");
                 assistanceName.setAttribute("class", "text-center");
+                assistanceName.setAttribute("href", urlAssistance);
                 var tempName = document.createTextNode(assistances[i].nameAssistance);
                 assistanceName.appendChild(tempName);
                     
-                //creating discover button dinamically
-                var discoverButton = document.createElement("a");
-                var urlAssistance = "assistance.html?idassistance=" + assistances[i].idAssistance;
-                discoverButton.setAttribute("href",urlAssistance);
-                var discover = document.createTextNode("Discover");
-                discoverButton.appendChild(discover);
-                discoverButton.setAttribute("class", "btn btn-primary btn-block");
+                var panel = document.createElement("div");
+                panel.setAttribute("class", "panel");
                     
-                //creating panel for the assistance
-                var assistancePanel = document.createElement("div");
-                assistancePanel.setAttribute("class", "panel");
-                assistancePanel.setAttribute("id", "panel-product");
-                
-                //appending all the elements to the page
-                assistancePanel.appendChild(assistanceName);
-                assistancePanel.appendChild(discoverButton);
-                
-                //creating container for the assistance
-                var assistance = document.createElement("div");
-                assistance.setAttribute("class", "col-sm-3 feature");
-                
-                assistance.appendChild(assistancePanel);
+                panel.appendChild(assistanceName);
+                mainCol.appendChild(panel);
 
-                var container = document.getElementById("assistance");
-              
-                    container.appendChild(assistance);
+                if(i%2==0){
+                    var row = document.createElement("div");
+                    row.setAttribute("class", "row text-center");
+                    
+                    row.appendChild(minorCol);
+                    row.appendChild(mainCol);
+                    
+                    container.appendChild(row);
+                }
+                
+                else{
+                    row.appendChild(mainCol);
+                    row.appendChild(minorCol);
+                }     
             }
              
         },
