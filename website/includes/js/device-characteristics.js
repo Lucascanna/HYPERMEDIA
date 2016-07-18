@@ -45,14 +45,14 @@ $("document").ready(
             characteristicsTable.appendChild(tableBody);
             
             var i=0;
-            for (Object in device[0]) {
+            for (var property in device[0]) {
                 if (i>4 && i<17) {
                     var row = document.createElement("tr");          
                     var column1 = document.createElement("td");
-                    var column1Text = document.createTextNode(Object.charAt(0).toUpperCase() + Object.substring(1));
+                    var column1Text = document.createTextNode(property.charAt(0).toUpperCase() + property.substring(1));
                     column1.appendChild(column1Text);
                     var column2 = document.createElement("td");
-                    var column2Text = document.createTextNode(device[0][Object]);
+                    var column2Text = document.createTextNode(device[0][property]);
                     column2.appendChild(column2Text);
                     row.appendChild(column1);
                     row.appendChild(column2);
