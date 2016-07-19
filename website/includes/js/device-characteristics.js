@@ -7,7 +7,7 @@ $("document").ready(
         method: "POST",          
         crossDomain: true, 
         
-        url: "includes/php/query.php",
+        url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php",
         data: {query: "SELECT * FROM products, productscategories " +
         "WHERE products.idCategory=productscategories.idCategory AND products.idProduct = '"+ idDevice +"'"},
         

@@ -6,7 +6,7 @@ $("document").ready(
         $.ajax({ 
             method: "POST", 
             crossDomain: true, 
-            url: "includes/php/query.php", //Relative or absolute path to file.phpfile  
+            url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php", //Relative or absolute path to file.phpfile  
             
             data: {query:   "SELECT * FROM smartlife, smartlifecategories "+ 
                             "WHERE smartlifecategories.idCategory=smartlife.idCategory AND smartlife.idSmartlife = '" +idDevice+ "'"},
