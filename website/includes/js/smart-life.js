@@ -60,7 +60,7 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/query.php",
+		url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php",
         data: {query: "SELECT * FROM products, smartlife, productsmartlife " +
                "WHERE smartlife.idSmartlife = '"+ idSmartlife +"' AND products.idProduct = productsmartlife.idProduct AND smartlife.idSmartlife = productsmartlife.idSmartlife"},
         

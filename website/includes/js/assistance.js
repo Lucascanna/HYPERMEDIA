@@ -54,7 +54,7 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/query.php",
+		url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php",
         data: {query: "SELECT * FROM assistance, products, productassistance " +
                "WHERE assistance.idAssistance = '"+ idAssistance +"' AND assistance.idAssistance = productassistance.idAssistance AND products.idProduct = productassistance.idProduct"},
         
