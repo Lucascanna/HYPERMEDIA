@@ -224,18 +224,13 @@ html, body {
 
 /* Portrait & landscape phone */
 @media (max-width: 480px) {
-    .item > div > h4{
-        font-size: 16px;
-    }
+
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
     #nav-list-2{
         margin-top: 42px;
-    }
-    .item > div > h4{
-        font-size: 24px;
     }
 }
 

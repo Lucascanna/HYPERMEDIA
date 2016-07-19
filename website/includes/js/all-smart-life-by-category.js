@@ -81,19 +81,6 @@ $("document").ready(
                         if(count==3)
                             break;
                         if(smartlife[j].nameCategory==uniqueCategories[i].namecategory){
-                            if(smartlife[j].nameCategory=="Health and well-being"){
-                                var img=document.createElement("img");
-                                img.setAttribute("class","img-responsive");
-                                img.setAttribute("id", "img-categories");
-                                var urlimg="images/"+smartlife[j].photoSmartlife;
-                                img.setAttribute("src",urlimg);
-                                var coloumnImage=document.createElement("div");
-                                coloumnImage.setAttribute("class", "col-sm-12 text-center");
-                                rowImages.appendChild(coloumnImage);
-                                coloumnImage.appendChild(img);
-                                count++;
-                            }
-                            else{
                                 var img=document.createElement("img");
                                 img.setAttribute("class","img-responsive");
                                 img.setAttribute("id", "img-categories");
@@ -104,7 +91,6 @@ $("document").ready(
                                 rowImages.appendChild(coloumnImage);
                                 coloumnImage.appendChild(img);
                                 count++;
-                            }
                         }
                     }
                 
