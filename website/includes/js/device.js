@@ -112,7 +112,7 @@ $("document").ready(
 		method: "POST",
 		crossDomain: true,
         
-		url: "includes/php/query.php",
+		url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php",
         data: {query:   "SELECT * FROM products, assistance, productassistance " +
                         "WHERE products.idProduct = '" + idDevice +"' AND products.idProduct = productassistance.idProduct AND assistance.idAssistance = productassistance.idAssistance"},
         
@@ -123,7 +123,7 @@ $("document").ready(
 
 			for (i = 0; i < assistance.length; i++) {
 
-                //creating buttons for available assistence sarvices
+                //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
 				var nameText = document.createTextNode(assistance[i].nameAssistance);
 				assistanceButton.appendChild(nameText);

@@ -20,7 +20,7 @@ $("document").ready(
         method: "POST",
         crossDomain: true,
         
-        url: "includes/php/query.php", //Relative or absolute path to file.phpfile
+        url: "http://pencoscannapiecotorelli.altervista.org/includes/php/query.php", //Relative or absolute path to file.phpfile
         data: { query: queryString},
         
         success: function(response) {
