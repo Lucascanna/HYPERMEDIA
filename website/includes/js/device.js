@@ -123,7 +123,7 @@ $("document").ready(
 
 			for (i = 0; i < assistance.length; i++) {
 
-                //creating buttons for available assistence sarvices
+                //creating buttons for available assistence services
                 var assistanceButton = document.createElement("a");
 				var nameText = document.createTextNode(assistance[i].nameAssistance);
 				assistanceButton.appendChild(nameText);
